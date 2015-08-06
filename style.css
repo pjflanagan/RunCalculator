@@ -90,29 +90,67 @@ header {
 	margin-top: -6px;
 }
 /*----------------------------
+			EVENT
+----------------------------*/
+table#event-table {
+	width:228px;
+	margin-left: 10px;
+	margin-top: -5px;
+}
+table#event-table tr td {
+	width:100px;
+	text-align: center;
+	font-size: 24px;
+}
+table#event-table tr td.mid {
+	font-size: 20px;
+	padding-top: 2px;
+}
+table#event-table tr td.end {
+	font-size: 16px;
+	color: #6D6D6D;
+	padding-top: 4px;
+}
+table#event-table tr td.end#left {
+	text-align: right;
+}
+table#event-table tr td.end#right {
+	text-align: left;
+}
+/*----------------------------
 			PACE
 ----------------------------*/
 table#pace-table {
 	width:228px;
+	height: 62px;
 	margin-left: 10px;
 	margin-top: -5px;
 }
 table#pace-table tr td {
 	width:100px;
 	text-align: center;
-	font-size: 30px;
+	font-size: 38px;
 }
 /*----------------------------
 			SPLIT
 ----------------------------*/
 table#split-table {
-	width:100%;
-
+	width:228px;
+	margin-left: 10px;
+	margin-top: -5px;
 }
 table#split-table tr td {
 	width:100px;
 	text-align: center;
 	font-size: 24px;
+}
+.selected-split {
+	color: #FFF;
+	background: #1C1C1C;
+	height: 44px;
+	padding-top: 6px;
+	padding-bottom: 4px;
+	margin-top: -2px;
 }
 /*----------------------------
 		Responsive CSS
