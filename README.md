@@ -1,2 +1,2 @@
-# PaceCalculator
-An online pace calculator
+# Run Calculator
+An online minimalist pace calculator for runners
