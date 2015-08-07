@@ -22,11 +22,10 @@ body {
 }
 header {
 	height:110px;
-	font-size:60px;
+	font-size:68px;
 	width: 100%;
 	text-align: center;
 	white-space:nowrap;
-	margin-bottom: -10px;
 }
 .container {
 	margin: 0 auto;

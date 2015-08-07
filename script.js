@@ -64,7 +64,15 @@ function output(){
 	document.getElementById("rm1").innerHTML = rm1;
 	document.getElementById("rs10").innerHTML = rs10;
 	document.getElementById("rs1").innerHTML = rs1;
+
+	hour_events = ["10MI","HALF","MARA"]
+	if(hour_events.indexOf(event_names[race])!=-1 && pacemode){
+		dec = Math.floor((dec*60));
+		if(dec<10) dec = ":0" + dec;
+		else dec = ":" + dec;
+	} 
 	document.getElementById("dec").innerHTML = (dec=="") ? ".000" : dec;
+
 }
 
 function cancel(){
