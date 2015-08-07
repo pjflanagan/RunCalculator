@@ -121,8 +121,9 @@ function processingRoutine() {
 		if(swipeDirection=="left") selectEvent(3);
 		else if(swipeDirection=="right") selectEvent(1);
 	}
-	else {
-		document.getElementById(triggerElementID).click();
+	else if(clock_events.indexOf(triggerElementID)!=-1){
+		if(swipeDirection==up)selectTime(-1,triggerElementID);
+		else if(swipeDirection==down)selectTime(1,triggerElementID);
 	}
 }
 
