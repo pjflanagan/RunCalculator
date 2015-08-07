@@ -116,6 +116,9 @@ function determineSwipeDirection() {
 	}
 }
 
+
+clock_events = ["m10","m1","s10","s1"]
+
 function processingRoutine() {
 	if(triggerElementID=="event"){
 		if(swipeDirection=="left") selectEvent(3);
