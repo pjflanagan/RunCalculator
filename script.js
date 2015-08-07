@@ -1,13 +1,13 @@
 
 var event_names = 		["800", "1200", "1600",
-						 "MILE", "3K", "2MILE",
-						 "5K", "8K", "5MILE",
-						 "10K", "HALF", "MARA"];
+						 "MILE", "3K", "2MI",
+						 "5K", "8K", "5MI",
+						 "10K","10MI", "HALF", "MARA"];
 
 var event_distances = 	[800, 1200, 1600,
 						convert(1), 3000, convert(2),
 						5000, 8000, convert(5),
-						10000, convert(13.1), convert(26.2)];
+						10000,convert(10), convert(13.1), convert(26.2)];
 
 var split_distances = [200, 400, 800, convert(1)];
 
@@ -32,8 +32,9 @@ function input(){
 	s1 = document.getElementById("s1").innerHTML * 1;
 	total_seconds = m1+m10+s10+s1;
 
-	if((event_names[race]=="HALF" || event_names[race]=="MARA") && !pacemode) total_seconds *= 60;
-	else if((event_names[race]=="HALF" || event_names[race]=="MARA") && pacemode) total_second /= 60;
+	hour_events = ["10MI","HALF","MARA"]
+	if(hour_events.indexOf(event_names[race])!=-1 && !pacemode) total_seconds *= 60;
+	else if(hour_events.indexOf(event_names[race])!=-1 && pacemode) total_second /= 60;
 
 	//output the result
 	output();

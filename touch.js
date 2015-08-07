@@ -14,7 +14,7 @@ var deltaX = 0;
 var deltaY = 0;
 var horzDiff = 0;
 var vertDiff = 0;
-var minLength = 32; // the shortest distance the user may swipe
+var minLength = 58; // the shortest distance the user may swipe
 var swipeLength = 0;
 var swipeAngle = null;
 var swipeDirection = null;
@@ -67,8 +67,6 @@ function touchEnd(event) {
 			processingRoutine();
 			touchCancel(event); // reset the variables
 		} else {
-			//ELSE CALL THE NORMAL CLICK EVENT
-			document.getElementById(triggerElementID).click();
 			touchCancel(event);
 		}	
 	} else {
@@ -117,7 +115,7 @@ function determineSwipeDirection() {
 }
 
 
-clock_events = ["m10","m1","s10","s1"]
+clock_events = ["m10","m1","s10","s1","m10d","m1d","s10d","s1d"]
 
 function processingRoutine() {
 	if(triggerElementID=="event"){
@@ -130,3 +128,8 @@ function processingRoutine() {
 	}
 }
 
+function tap(){
+	if(clock_events.indexOf(triggerElementID)!=-1){
+		selectTime(1,triggerElementID);
+	}
+}
