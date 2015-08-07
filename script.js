@@ -34,7 +34,7 @@ function input(){
 
 	hour_events = ["10MI","HALF","MARA"]
 	if(hour_events.indexOf(event_names[race])!=-1 && !pacemode) total_seconds *= 60;
-	else if(hour_events.indexOf(event_names[race])!=-1 && pacemode) total_second /= 60;
+	else if(hour_events.indexOf(event_names[race])!=-1 && pacemode) total_seconds /= 60;
 
 	//output the result
 	output();
