@@ -16,7 +16,7 @@ body {
 	-moz-user-select: none;
 	-khtml-user-select: none;
 	-ms-user-select: none;
-	overflow-x:hidden;
+	/*overflow-x:hidden;*/
 	font-family: "bebas";
 	color:#1C1C1C;
 }
@@ -36,9 +36,6 @@ header {
 	background: #1C1C1C;
 	font-family: "digital";
 	color: #FFF;
-}
-.button:hover {
-
 }
 
 /*----------------------------
@@ -118,15 +115,32 @@ table#event-table tr td.end#right {
 	text-align: left;
 }
 /*----------------------------
-			PACE
+			TIME
 ----------------------------*/
-table#pace-table {
+#time-item {
+	margin-top: -20px;
+}
+table#time-table {
 	width:228px;
-	height: 62px;
 	margin-left: 10px;
 	margin-top: -5px;
 }
-table#pace-table tr td {
+table#time-table tr.arrows {
+	font-size: 12px;
+	height: 14px;
+	margin-left: 20px;
+}
+table#time-table tr.arrows#bottom-arrows {
+	height:26px;
+}
+table#time-table tr.arrows td {
+	width:100px;
+	text-align: center;
+}
+table#time-table tr#time-clock {
+	height: 62px;
+}
+table#time-table tr#time-clock td {
 	width:100px;
 	text-align: center;
 	font-size: 38px;
@@ -134,6 +148,9 @@ table#pace-table tr td {
 /*----------------------------
 			SPLIT
 ----------------------------*/
+#split-item {
+	margin-top: 20px;
+}
 table#split-table {
 	width:228px;
 	margin-left: 10px;
@@ -143,6 +160,9 @@ table#split-table tr td {
 	width:100px;
 	text-align: center;
 	font-size: 24px;
+}
+table#split-table tr td:hover{
+	cursor: pointer;
 }
 .selected-split {
 	color: #FFF;

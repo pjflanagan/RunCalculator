@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  <body onload="input();">
     <div class="container">
       <header>Pace Calculator</header>
 
@@ -32,11 +32,11 @@
             <td>
               <table id="event-table">
                 <tr>
-                  <td class="end" id="left">400</td>
-                  <td class="mid">800</td>
-                  <td class="selected-split">1200</td>
-                  <td class="mid">1600</td>
-                  <td class="end" id="right">MILE</td>
+                  <td class="end" id="left">3K</td>
+                  <td class="mid">2MILE</td>
+                  <td class="selected-split">5K</td>
+                  <td class="mid">8K</td>
+                  <td class="end" id="right">5MILE</td>
                 </tr>
               </table>
             </td>
@@ -44,19 +44,33 @@
         </table>
       </div>
 
-      <div class="item">
+      <div class="item" id="time-item">
         <table>
           <tr>
-            <td class="title">Pace</td>
+            <td class="title">Time</td>
             <td class="divider"><div class="bar"></div></td>
             <td>
-              <table id="pace-table" class="clock">
-                <tr>
-                  <td>0</td>
-                  <td>0</td>
+              <table id="time-table">
+                <tr class="arrows">
+                  <td><span class="glyphicon glyphicon-chevron-up"></span></td>
+                  <td><span class="glyphicon glyphicon-chevron-up"></span></td>
+                  <td></td>
+                  <td><span class="glyphicon glyphicon-chevron-up"></span></td>
+                  <td><span class="glyphicon glyphicon-chevron-up"></span></td>
+                </tr>
+                <tr class="clock" id="time-clock">
+                  <td id="m10">3</td>
+                  <td id="m1">1</td>
                   <td>:</td>
-                  <td>0</td>
-                  <td>0</td>
+                  <td id="s10">0</td>
+                  <td id="s1">0</td>
+                </tr>
+                <tr class="arrows" id="bottom-arrows">
+                  <td><span class="glyphicon glyphicon-chevron-down"></span></td>
+                  <td><span class="glyphicon glyphicon-chevron-down"></span></td>
+                  <td></td>
+                  <td><span class="glyphicon glyphicon-chevron-down"></span></td>
+                  <td><span class="glyphicon glyphicon-chevron-down"></span></td>
                 </tr>
               </table>
             </td>
@@ -64,7 +78,7 @@
         </table>
       </div>
 
-      <div class="item">
+      <div class="item" id="split-item">
         <table>
           <tr>
             <td class="title">SPLIT</td>
@@ -72,10 +86,10 @@
             <td>
               <table id="split-table">
                 <tr>
-                  <td class="selected-split">200</td>
-                  <td>400</td>
-                  <td>800</td>
-                  <td class="selected-split">MILE</td>
+                  <td id="split0" onclick="selectSplit(0)">200</td>
+                  <td id="split1" onclick="selectSplit(1)">400</td>
+                  <td id="split2" onclick="selectSplit(2)">800</td>
+                  <td id="split3" onclick="selectSplit(3)">MILE</td>
                 </tr>
               </table>
             </td>
@@ -86,18 +100,19 @@
       <div id="result-clock" class="clock">
         <table>
           <tr>
-            <td id="1">0</td>
-            <td id="2">0</td>
+            <td id="rm10">0</td>
+            <td id="rm1">0</td>
             <td id="colon">:</td>
-            <td id="3">0</td>
-            <td id="4">0</td>
+            <td id="rs10">0</td>
+            <td id="rs1">0</td>
             <td id="dec">.000</td>
           </tr>
         </table>
       </div> 
-    </div>
     
+      <div class="item" id="ad" style="background:#E2E2E2;margin-top:20px;"></div>
 
+    </div>
 
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -106,6 +121,6 @@
     <!-- Google Analytics-->
     <script type="text/javascript"></script>
     <!--Script-->
-    <script type="text/javascript"></script>
+    <script src="script.js"></script>
   </body>
 </html>
