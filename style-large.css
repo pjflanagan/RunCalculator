@@ -1,0 +1,99 @@
+/*----------------------------
+		Responsive CSS
+----------------------------*/
+
+@media (min-width: 675px) {
+	header {
+		font-size: 100px;
+	}
+	.container {
+		width: 600px;
+	}
+	/*----------------------------
+				Input 
+	----------------------------*/
+	.item {
+		width: 100%;
+		height: 160px;
+	}
+	.title {
+		font-size: 54px; 
+		width: 140px;
+		text-align: center;
+	}
+	.divider {
+		width: 4px;
+	}
+	.divider div.bar {
+		background: #1C1C1C;
+		height: 68px;
+		position: relative;
+		margin-top: -6px;
+	}
+
+	/*----------------------------
+				EVENT
+	----------------------------*/
+	#event-item{
+		margin-top: 20px;
+	}
+	table#event-table {
+		width:228px;
+		margin-left: 10px;
+		margin-top: -5px;
+	}
+	table#event-table tr td {
+		width:100px;
+		text-align: center;
+		font-size: 24px;
+	}
+	table#event-table tr td.mid {
+		font-size: 20px;
+		padding-top: 2px;
+	}
+	table#event-table tr td.end {
+		font-size: 16px;
+		color: #6D6D6D;
+		padding-top: 4px;
+	}
+	table#event-table tr td.end#event1 {
+		text-align: right;
+	}
+	table#event-table tr td.end#event5 {
+		text-align: left;
+	}
+	table#event-table tr td#event3 {
+		width:100px;
+	}
+	/*----------------------------
+				TIME
+	----------------------------*/
+	#time-item {
+		margin-top: -40px;
+	}
+
+	/*----------------------------
+			RESULT CLOCK
+	----------------------------*/
+	#result-clock {
+		padding-left: 31px;
+	}
+	#result-clock table {
+		height: 142px;
+	}
+	#result-clock table{
+		font-size: 100px;
+	}
+	#result-clock table tr td {
+		width: 88px;
+	}
+	#result-clock table tr td#dec {
+		font-size: 38px;
+		margin-top: 24px;
+	}
+	#result-clock table tr td#colon {
+		font-size: 90px;
+		padding-left: 13px;
+	}
+
+}

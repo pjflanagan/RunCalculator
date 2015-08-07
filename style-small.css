@@ -37,11 +37,13 @@ header {
 	font-family: "digital";
 	color: #FFF;
 }
+.hover:hover {
+	cursor: pointer;
+}
 
 /*----------------------------
 		Result Clock
 ----------------------------*/
-
 #result-clock {
 	width: 100%;
 	padding-left: 20px;
@@ -63,7 +65,6 @@ header {
 	font-size: 54px;
 	padding-left: 7px;
 }
-
 
 /*----------------------------
 			Input 
@@ -108,11 +109,14 @@ table#event-table tr td.end {
 	color: #6D6D6D;
 	padding-top: 4px;
 }
-table#event-table tr td.end#left {
+table#event-table tr td.end#event1 {
 	text-align: right;
 }
-table#event-table tr td.end#right {
+table#event-table tr td.end#event5 {
 	text-align: left;
+}
+table#event-table tr td#event3 {
+	width:100px;
 }
 /*----------------------------
 			TIME
@@ -134,14 +138,14 @@ table#time-table tr.arrows#bottom-arrows {
 	height:26px;
 }
 table#time-table tr.arrows td {
-	width:100px;
+	width:45px;
 	text-align: center;
 }
 table#time-table tr#time-clock {
 	height: 62px;
 }
 table#time-table tr#time-clock td {
-	width:100px;
+	width:45px;
 	text-align: center;
 	font-size: 38px;
 }
@@ -171,19 +175,4 @@ table#split-table tr td:hover{
 	padding-top: 6px;
 	padding-bottom: 4px;
 	margin-top: -2px;
-}
-/*----------------------------
-		Responsive CSS
-----------------------------*/
-
-@media (min-width: 675px) {
-	header {
-		font-size: 100px;
-	}
-	.container {
-		width: 600px;
-	}
-	#result-clock table {
-		height: 142px;
-	}
 }
