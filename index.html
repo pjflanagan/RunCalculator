@@ -24,13 +24,16 @@
     <div class="container">
       <header>Pace Calculator</header>
 
-      <div class="item" id="event-item">
+      <!--************************************
+                        EVENT
+          ************************************-->
+      <div class="item" id="event-item" ontouchstart="touchStart(event,'event');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
         <table>
           <tr>
             <td class="title">EVENT</td>
             <td class="divider"><div class="bar"></div></td>
             <td>
-              <table id="event-table">
+              <table id="event-table" ontouchstart>
                 <tr>
                   <td class="end hover" id="event0" onclick="selectEvent(0);">3K</td>
                   <td class="mid hover" id="event1" onclick="selectEvent(1);">2MILE</td>
@@ -44,6 +47,9 @@
         </table>
       </div>
 
+      <!--************************************
+                        TIME/PACE
+          ************************************-->
       <div class="item" id="time-item">
         <table>
           <tr>
@@ -52,11 +58,11 @@
             <td>
               <table class="hover" id="time-table">
                 <tr class="arrows">
-                  <td onclick="selectTime(+1,'m10');"><span class="glyphicon glyphicon-chevron-up"></span></td>
-                  <td onclick="selectTime(+1,'m1');"><span class="glyphicon glyphicon-chevron-up"></span></td>
+                  <td id="up0" onclick="selectTime(+1,'m10');"><span class="glyphicon glyphicon-chevron-up"></span></td>
+                  <td id="up1" onclick="selectTime(+1,'m1');"><span class="glyphicon glyphicon-chevron-up"></span></td>
                   <td></td>
-                  <td onclick="selectTime(+1,'s10');"><span class="glyphicon glyphicon-chevron-up"></span></td>
-                  <td onclick="selectTime(+1,'s1');"><span class="glyphicon glyphicon-chevron-up"></span></td>
+                  <td id="up2" onclick="selectTime(+1,'s10');"><span class="glyphicon glyphicon-chevron-up"></span></td>
+                  <td id="up3" onclick="selectTime(+1,'s1');"><span class="glyphicon glyphicon-chevron-up"></span></td>
                 </tr>
                 <tr class="clock" id="time-clock">
                   <td onclick="selectTime(+1,'m10');" id="m10">0</td>
@@ -66,11 +72,11 @@
                   <td onclick="selectTime(+1,'s1');" id="s1">0</td>
                 </tr>
                 <tr class="arrows" id="bottom-arrows">
-                  <td onclick="selectTime(-1,'m10');"><span class="glyphicon glyphicon-chevron-down"></span></td>
-                  <td onclick="selectTime(-1,'m1');"><span class="glyphicon glyphicon-chevron-down"></span></td>
+                  <td id="down0" onclick="selectTime(-1,'m10');"><span class="glyphicon glyphicon-chevron-down"></span></td>
+                  <td id="down1" onclick="selectTime(-1,'m1');"><span class="glyphicon glyphicon-chevron-down"></span></td>
                   <td></td>
-                  <td onclick="selectTime(-1,'s10');"><span class="glyphicon glyphicon-chevron-down"></span></td>
-                  <td onclick="selectTime(-1,'s1');"><span class="glyphicon glyphicon-chevron-down"></span></td>
+                  <td id="down2"onclick="selectTime(-1,'s10');"><span class="glyphicon glyphicon-chevron-down"></span></td>
+                  <td id="down3" onclick="selectTime(-1,'s1');"><span class="glyphicon glyphicon-chevron-down"></span></td>
                 </tr>
               </table>
             </td>
@@ -78,6 +84,9 @@
         </table>
       </div>
 
+      <!--************************************
+                        SPLIT
+          ************************************-->
       <div class="item" id="split-item">
         <table>
           <tr>
@@ -86,10 +95,10 @@
             <td>
               <table id="split-table">
                 <tr>
-                  <td id="split0" onclick="selectSplit(0);">200</td>
-                  <td id="split1" onclick="selectSplit(1);">400</td>
-                  <td id="split2" onclick="selectSplit(2);">800</td>
-                  <td id="split3" onclick="selectSplit(3);">MILE</td>
+                  <td id="split0" onclick="selectSplit(0);" ontouchstart="selectSplit(0);">200</td>
+                  <td id="split1" onclick="selectSplit(1);" ontouchstart="selectSplit(1);">400</td>
+                  <td id="split2" onclick="selectSplit(2);" ontouchstart="selectSplit(2);">800</td>
+                  <td id="split3" onclick="selectSplit(3);" ontouchstart="selectSplit(3);">MILE</td>
                 </tr>
               </table>
             </td>
@@ -97,6 +106,10 @@
         </table>
       </div>
 
+
+      <!--************************************
+                        RESULTS
+          ************************************-->
       <div id="result-clock" class="clock">
         <table>
           <tr>
@@ -112,7 +125,7 @@
     
       <div class="item" id="ad" style="background:#E2E2E2;margin-top:20px;"></div>
 
-    </div>
+    </div><!--End .container-->
 
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -122,5 +135,7 @@
     <script type="text/javascript"></script>
     <!--Script-->
     <script src="script.js"></script>
+    <!--TouchScreen-->
+    <script src="touch.js"></script>
   </body>
 </html>

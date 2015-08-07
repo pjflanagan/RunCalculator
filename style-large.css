@@ -71,6 +71,29 @@
 	#time-item {
 		margin-top: -40px;
 	}
+	table#time-table {
+		width:100%;
+		margin-left: 10px;
+		margin-top: -5px;
+	}
+	table#time-table tr.arrows {
+		font-size: 12px;
+		height: 14px;
+		margin-left: 20px;
+	}
+	table#time-table tr.arrows#bottom-arrows {
+		height:26px;
+	}
+	table#time-table tr.arrows td {
+		text-align: center;
+	}
+	table#time-table tr#time-clock {
+		height: 108px;
+	}
+	table#time-table tr#time-clock td {
+		text-align: center;
+		font-size: 60px;
+	}
 
 	/*----------------------------
 			RESULT CLOCK
