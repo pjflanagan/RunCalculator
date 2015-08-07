@@ -55,7 +55,7 @@
       <div class="item" id="time-item">
         <table>
           <tr>
-            <td class="title hover" id="item-2-title" onclick="togglePaceMode();" ontouchstart="togglePaceMode();">Time</td>
+            <td class="title hover" id="item-2-title" onclick="togglePaceMode();" ontouchstart="event.preventDefault();togglePaceMode();">Time</td>
             <td class="divider"><div class="bar"></div></td>
             <td>
               <table class="hover" id="time-table">
@@ -97,10 +97,10 @@
             <td>
               <table id="split-table">
                 <tr>
-                  <td id="split0" onclick="selectSplit(0);" ontouchstart="selectSplit(0);">200</td>
-                  <td id="split1" onclick="selectSplit(1);" ontouchstart="selectSplit(1);">400</td>
-                  <td id="split2" onclick="selectSplit(2);" ontouchstart="selectSplit(2);">800</td>
-                  <td id="split3" onclick="selectSplit(3);" ontouchstart="selectSplit(3);">MILE</td>
+                  <td id="split0" onclick="selectSplit(0);" ontouchstart="event.preventDefault();selectSplit(0);">200</td>
+                  <td id="split1" onclick="selectSplit(1);" ontouchstart="event.preventDefault();selectSplit(1);">400</td>
+                  <td id="split2" onclick="selectSplit(2);" ontouchstart="event.preventDefault();selectSplit(2);">800</td>
+                  <td id="split3" onclick="selectSplit(3);" ontouchstart="event.preventDefault();selectSplit(3);">MILE</td>
                 </tr>
               </table>
             </td>

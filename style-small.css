@@ -129,7 +129,6 @@ table#event-table tr td#event2 {
 table#time-table {
 	width:228px;
 	margin-left: 10px;
-	margin-top: -5px;
 }
 table#time-table tr.arrows {
 	font-size: 12px;
