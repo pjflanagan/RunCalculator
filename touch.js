@@ -121,5 +121,8 @@ function processingRoutine() {
 		if(swipeDirection=="left") selectEvent(3);
 		else if(swipeDirection=="right") selectEvent(1);
 	}
+	else {
+		document.getElementById(triggerElementID).click();
+	}
 }
 
