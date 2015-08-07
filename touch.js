@@ -67,6 +67,8 @@ function touchEnd(event) {
 			processingRoutine();
 			touchCancel(event); // reset the variables
 		} else {
+			//treat as single touch
+			tap();
 			touchCancel(event);
 		}	
 	} else {
