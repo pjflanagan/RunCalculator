@@ -1,0 +1,178 @@
+/*----------------------------
+			Main
+----------------------------*/
+@font-face {
+	font-family:"digital";
+	src:url(DS-DIGIB.TTF);
+}
+@font-face {
+	font-family:"bebas";
+	src:url(BebasNeue.otf);
+}
+body {
+	user-select: none;
+	-webkit-user-select:none;
+	-webkit-touch-callout: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+	/*overflow-x:hidden;*/
+	font-family: "bebas";
+	color:#1C1C1C;
+}
+header {
+	height:110px;
+	font-size:68px;
+	width: 100%;
+	text-align: center;
+	white-space:nowrap;
+}
+.container {
+	margin: 0 auto;
+	width:380px;
+}
+.clock {
+	background: #1C1C1C;
+	font-family: "digital";
+	color: #FFF;
+}
+.hover:hover {
+	cursor: pointer;
+}
+
+/*----------------------------
+		Result Clock
+----------------------------*/
+#result-clock {
+	width: 100%;
+	padding-left: 20px;
+}
+#result-clock table{
+	width: 100%;
+	font-size: 58px;
+	height: 68px;
+}
+#result-clock table tr td {
+	width: 54px;
+}
+#result-clock table tr td#dec {
+	font-size: 20px;
+	margin-top: 15px;
+	position: absolute;
+}
+#result-clock table tr td#colon {
+	font-size: 54px;
+	padding-left: 7px;
+}
+
+/*----------------------------
+			Input 
+----------------------------*/
+.item {
+	width: 100%;
+	height: 96px;
+}
+.title {
+	font-size: 42px; 
+	width: 100px;
+	text-align: center;
+}
+.divider {
+	width: 4px;
+}
+.divider div.bar {
+	background: #1C1C1C;
+	height: 48px;
+	position: relative;
+	margin-top: -6px;
+}
+/*----------------------------
+			EVENT
+----------------------------*/
+table#event-table {
+	width:228px;
+	margin-left: 10px;
+	margin-top: -5px;
+}
+table#event-table tr td {
+	min-width: 42px;
+	max-width: 42px;
+	text-align: center;
+	font-size: 24px;
+}
+table#event-table tr td.mid {
+	font-size: 20px;
+	padding-top: 2px;
+}
+table#event-table tr td.end {
+	font-size: 16px;
+	color: #6D6D6D;
+	padding-top: 4px;
+}
+/*table#event-table tr td.end#event0 {
+	text-align: right;
+}
+table#event-table tr td.end#event4 {
+	text-align: left;
+}*/
+table#event-table tr td#event2 {
+	min-width: 60px;
+	max-width: 60px;
+}
+/*----------------------------
+			TIME
+----------------------------*/
+#time-item {
+	margin-top: -20px;
+}
+table#time-table {
+	width:228px;
+	margin-left: 10px;
+}
+table#time-table tr.arrows {
+	font-size: 12px;
+	height: 14px;
+	margin-left: 20px;
+}
+table#time-table tr.arrows#bottom-arrows {
+	height:26px;
+}
+table#time-table tr.arrows td {
+	width:45px;
+	text-align: center;
+}
+table#time-table tr#time-clock {
+	height: 62px;
+}
+table#time-table tr#time-clock td {
+	width:45px;
+	text-align: center;
+	font-size: 38px;
+}
+/*----------------------------
+			SPLIT
+----------------------------*/
+#split-item {
+	margin-top: 20px;
+}
+table#split-table {
+	width:228px;
+	margin-left: 10px;
+	margin-top: -5px;
+}
+table#split-table tr td {
+	width:100px;
+	text-align: center;
+	font-size: 24px;
+}
+table#split-table tr td:hover{
+	cursor: pointer;
+}
+.selected-split {
+	color: #FFF;
+	background: #1C1C1C;
+	height: 44px;
+	padding-top: 6px;
+	padding-bottom: 4px;
+	margin-top: -2px;
+}
