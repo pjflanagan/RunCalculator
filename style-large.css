@@ -141,4 +141,22 @@
 		padding-left: 13px;
 	}
 
+	/*----------------------------
+			 	TEXT
+	----------------------------*/
+	#share-item {
+		margin-top: 20px;
+	}
+	#share-item table tr td#link div#select{
+		margin-left:24px;
+		font-size:40px;
+		text-align:center;
+		width: 420px;
+	}
+	.item#p {
+		margin-top:-50px;
+		font-size:14px;
+		text-align:justify;
+		font-family:Arial;
+	}
 }

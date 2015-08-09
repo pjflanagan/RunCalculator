@@ -30,7 +30,7 @@
       <!-- - - - - - - - - - - - - - - - - -
                         EVENT
       - - - - - - - - - - - - - - - - - - -->
-      <div class="item" id="event-item" ontouchstart="touchStart(event,'event');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
+      <div class="item light" id="event-item" ontouchstart="touchStart(event,'event');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
         <table>
           <tr>
             <td class="title">EVENT</td>
@@ -53,7 +53,7 @@
       <!-- - - - - - - - - - - - - - - - - -
                     TIME / PACE
       - - - - - - - - - - - - - - - - - - -->
-      <div class="item" id="time-item">
+      <div class="item light" id="time-item">
         <table>
           <tr>
             <td class="title hover" id="item-2-title" onclick="togglePaceMode();" ontouchstart="event.preventDefault();togglePaceMode();">Time</td>
@@ -90,7 +90,7 @@
       <!-- - - - - - - - - - - - - - - - - -
                         SPLIT
       - - - - - - - - - - - - - - - - - - -->
-      <div class="item" id="split-item">
+      <div class="item light" id="split-item">
         <table>
           <tr>
             <td class="title">SPLIT</td>
@@ -112,7 +112,7 @@
       <!-- - - - - - - - - - - - - - - - - -
                       RESULTS
       - - - - - - - - - - - - - - - - - - -->
-      <div id="result-clock" class="clock">
+      <div id="result-clock" class="clock light">
         <table class="clock">
           <tr class="clock">
             <td id="rm10">0</td>
@@ -124,6 +124,44 @@
           </tr>
         </table>
       </div> 
+
+      <div class="item" id="share-item"onclick="SelectText('select');">
+        <table>
+          <tr>
+            <td class="title" id="share">SHARE</td>
+            <td class="divider"><div class="bar"></div></td>
+            <td id="link">
+              <div id="select">runcalculator.net</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="item" id="p">
+        <p>Welcome to the running pace calculator, a simple calculator for mobile and desktop. All you have to do is select the event, enter your time, and select the split you want to view. The split pace gets shown at the bottom of the page. You can also click on ‘TIME’ to change it to ‘PACE’ so that you can enter the split pace that you want to run, and have your time outputted to the clock. Feel free to share this website with other runners who want an easy way to know their splits!</p>
+      </div>
+
+
+      <script type="text/javascript">
+        function SelectText(element) {
+            var doc = document
+                , text = doc.getElementById(element)
+                , range, selection
+            ;    
+            if (doc.body.createTextRange) {
+                range = document.body.createTextRange();
+                range.moveToElementText(text);
+                range.select();
+            } else if (window.getSelection) {
+                selection = window.getSelection();        
+                range = document.createRange();
+                range.selectNodeContents(text);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            }
+            document.getElementById("share").innerHTML = "COPY";
+        }
+      </script>
     
       <div class="item" id="ad" style="margin-top:20px;">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

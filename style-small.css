@@ -1,6 +1,11 @@
 /*----------------------------
 			Main
 ----------------------------*/
+::selection {
+	color: #FFF;
+	background: #1C1C1C;
+	opacity: 1;
+}
 @font-face {
 	font-family:"digital";
 	src:url(LiquidCrystal-Bold.otf);
@@ -10,15 +15,17 @@
 	src:url(BebasNeue.otf);
 }
 body {
+	overflow-x:hidden;
+	font-family: "bebas";
+	color:#1C1C1C;
+}
+.light {
 	user-select: none;
 	-webkit-user-select:none;
 	-webkit-touch-callout: none;
 	-moz-user-select: none;
 	-khtml-user-select: none;
 	-ms-user-select: none;
-	/*overflow-x:hidden;*/
-	font-family: "bebas";
-	color:#1C1C1C;
 }
 header {
 	height:110px;
@@ -176,4 +183,17 @@ table#split-table tr td:hover{
 	padding-top: 6px;
 	padding-bottom: 4px;
 	margin-top: -2px;
+}
+
+/*----------------------------
+		 	TEXT
+----------------------------*/
+#share-item:hover {
+	cursor: pointer;
+}
+#share-item table tr td#link{
+
+}
+.item#p {
+
 }
