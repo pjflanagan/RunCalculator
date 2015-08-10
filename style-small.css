@@ -186,14 +186,5 @@ table#split-table tr td:hover{
 }
 
 /*----------------------------
-		 	TEXT
+	 TEXT (Doesn't Matter)
 ----------------------------*/
-#share-item:hover {
-	cursor: pointer;
-}
-#share-item table tr td#link{
-
-}
-.item#p {
-
-}
