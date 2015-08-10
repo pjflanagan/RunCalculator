@@ -147,6 +147,9 @@
 	#share-item {
 		margin-top: 30px;
 	}
+	#share-item:hover {
+		cursor: pointer;
+	}
 	#share-item table tr td#link div#select{
 		margin-left:24px;
 		font-size:40px;
