@@ -21,7 +21,7 @@ selectSplit(split);
 
 function convert(x){ 
 	//miles to meters
-	return x*1609.34;
+	return x*1609.344;
 }
 
 function input(){
