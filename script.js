@@ -16,7 +16,7 @@ var total_seconds = 0,
 	split = 3,
 	pacemode = false;
 
-//selectEvent(race);
+selectEvent(2);
 selectSplit(split);
 
 function convert(x){ 
