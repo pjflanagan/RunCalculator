@@ -3,7 +3,7 @@
 ----------------------------*/
 
 @media (min-width: 675px) {
-	header {
+	header, header a {
 		font-size: 112px;
 	}
 	.container {
