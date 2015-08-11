@@ -156,6 +156,15 @@
 		text-align:center;
 		width: 420px;
 	}
+	#blog-item {
+		margin-top: -50px;
+	}
+	#blog-item table tr td div#blog-link{
+		margin-left:24px;
+		font-size:40px;
+		text-align:center;
+		width: 420px;
+	}
 	.item#p {
 		margin-top:-50px;
 		font-size:14px;
