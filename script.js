@@ -5,7 +5,7 @@ var event_names = 		["800", "1200", "1600",
 						 "10K","10MI", "HALF", "MARA"];
 
 var event_distances = 	[800, 1200, 1600,
-						convert(1), 3000, convert(2), conver(3),
+						convert(1), 3000, convert(2), convert(3),
 						5000, 6000, 8000, convert(5),
 						10000,convert(10), convert(13.1), convert(26.2)];
 
@@ -16,7 +16,7 @@ var total_seconds = 0,
 	split = 3,
 	pacemode = false;
 
-selectEvent(race);
+//selectEvent(race);
 selectSplit(split);
 
 function convert(x){ 
