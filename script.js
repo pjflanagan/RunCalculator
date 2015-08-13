@@ -41,7 +41,28 @@ function input(){
 	output();
 }
 
+/*function random() {
+	var timeout = setInterval(change,14);
+	setTimeout(stop,98);
+
+	function change(){
+		document.getElementById("rm10").innerHTML = Math.floor(Math.random()*10);
+		document.getElementById("rm1").innerHTML = Math.floor(Math.random()*10);
+		document.getElementById("rs10").innerHTML = Math.floor(Math.random()*10);
+		document.getElementById("rs1").innerHTML = Math.floor(Math.random()*10);
+		document.getElementById("dec").innerHTML = "." + Math.floor(Math.random()*100);;
+	}
+
+	function stop(){
+		clearTimeout(timeout);
+	}
+}*/
+
+
 function output(){
+
+	//random();
+	//setTimeout(function(){
 	factor = (!pacemode) ? split_distances[split] / event_distances[race] : event_distances[race] / split_distances[split] ;
 
 	if(factor > 1 & !pacemode){
@@ -73,7 +94,7 @@ function output(){
 		else dec = ":" + dec;
 	} 
 	document.getElementById("dec").innerHTML = (dec=="") ? ".000" : dec;
-
+	//},110);
 }
 
 function cancel(){
