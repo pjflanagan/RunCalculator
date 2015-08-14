@@ -18,6 +18,7 @@ body {
 	overflow-x:hidden;
 	font-family: "bebas";
 	color:#1C1C1C;
+	zoom: .75; -moz-transform: scale(.75); -moz-transform-origin: 0 0;
 }
 .light {
 	user-select: none;
@@ -197,6 +198,7 @@ table#split-table tr td:hover{
 ----------------------------*/
 .item#ad {
 	margin-top: 22px;
+	margin-bottom: 50px;
 }
 
 /*----------------------------
