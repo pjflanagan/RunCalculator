@@ -1,10 +1,10 @@
 
-var event_names = 		["800", "1200", "1600",
+var event_names = 		["800", "1000", "1200", "1600",
 						 "MILE", "3K", "2MI", "3MI",
 						 "5K", "6K", "8K", "5MI",
 						 "10K","10MI", "HALF", "MARA"];
 
-var event_distances = 	[800, 1200, 1600,
+var event_distances = 	[800, 1000, 1200, 1600,
 						convert(1), 3000, convert(2), convert(3),
 						5000, 6000, 8000, convert(5),
 						10000,convert(10), convert(13.1), convert(26.2)];
