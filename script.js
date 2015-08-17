@@ -27,15 +27,12 @@ function convert(x){
 function input(){
 
 	//add all the seconds
+	h1 = document.getElementById("h1").innerHTML * 60 * 60;
 	m10 = document.getElementById("m10").innerHTML * 60 * 10;
 	m1 = document.getElementById("m1").innerHTML * 60;
 	s10 = document.getElementById("s10").innerHTML * 10;
 	s1 = document.getElementById("s1").innerHTML * 1;
-	total_seconds = m1+m10+s10+s1;
-
-	hour_events = ["10MI","HALF","MARA"]
-	if(hour_events.indexOf(event_names[race])!=-1 && !pacemode) total_seconds *= 60;
-	else if(hour_events.indexOf(event_names[race])!=-1 && pacemode) total_seconds /= 60;
+	total_seconds = h1+m1+m10+s10+s1;
 
 	//output the result
 	output();
@@ -86,15 +83,7 @@ function output(){
 	document.getElementById("rm1").innerHTML = rm1;
 	document.getElementById("rs10").innerHTML = rs10;
 	document.getElementById("rs1").innerHTML = rs1;
-
-	hour_events = ["10MI","HALF","MARA"]
-	if(hour_events.indexOf(event_names[race])!=-1 && pacemode){
-		dec = Math.floor((dec*60));
-		if(dec<10) dec = ":0" + dec;
-		else dec = ":" + dec;
-	} 
 	document.getElementById("dec").innerHTML = (dec=="") ? ".000" : dec;
-	//},110);
 }
 
 function cancel(){
