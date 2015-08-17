@@ -180,7 +180,7 @@ table#split-table {
 table#split-table tr td {
 	width:46px;
 	text-align: center;
-	font-size: 24px;
+	font-size: 20px;
 }
 table#split-table tr td:hover{
 	cursor: pointer;

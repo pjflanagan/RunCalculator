@@ -105,7 +105,7 @@
 	table#split-table tr td {
 		width:80px;
 		text-align: center;
-		font-size: 36px;
+		font-size: 30px;
 	}
 	table#split-table tr td:hover{
 		cursor: pointer;
