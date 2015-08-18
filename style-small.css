@@ -109,7 +109,7 @@ header a:hover{
 table#event-table {
 	width:200px;
 	margin-left: 10px;
-	margin-top: -5px;
+	margin-top: -7px;
 }
 table#event-table tr td {
 	min-width: 42px;
@@ -175,7 +175,7 @@ table#time-table tr#time-clock td {
 table#split-table {
 	width:228px;
 	margin-left: 10px;
-	margin-top: -5px;
+	margin-top: -7px;
 }
 table#split-table tr td {
 	width:46px;
