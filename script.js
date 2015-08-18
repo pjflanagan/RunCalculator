@@ -13,7 +13,7 @@ var split_distances = [200, 400, 800, 1000, convert(1)];
 
 var total_seconds = 0,
 	race = 7,
-	split = 3,
+	split = 4,
 	pacemode = false;
 
 selectEvent(2);
@@ -57,28 +57,31 @@ function input(){
 
 
 function output(){
-
+	hourmode = false;
 	//random();
 	//setTimeout(function(){
 	factor = (!pacemode) ? split_distances[split] / event_distances[race] : event_distances[race] / split_distances[split] ;
-
-	if(factor > 1 & !pacemode){
-		cancel();
-		return;
-	}
+	if(factor > 1 & !pacemode) return cancel();
 
 	split_time = total_seconds * factor;
 	rm10 = Math.floor(split_time/60/10);
-
-	if(rm10>=10){
-		cancel();
-		return;
-	}
+	if(rm10>=6) hourmode = true;
 
 	rm1 = Math.floor(split_time/60%10);
 	rs10 = Math.floor(split_time%60/10);
 	rs1 = Math.floor(split_time%60%10);
 	dec = (split_time%60%10%1 + "").substr(1).substr(0,4);
+
+	if(hourmode){
+		dec = ":" + rs10 + "" + rs1;
+		rs10 = rm10%6;
+		rs1 = rm1;
+		rm10 = Math.floor(split_time/60/60/10);
+		if(rm10>=10) return cancel();
+
+		rm1 = Math.floor(split_time/60/60%10);
+	}
+	
 	document.getElementById("rm10").innerHTML = rm10;
 	document.getElementById("rm1").innerHTML = rm1;
 	document.getElementById("rs10").innerHTML = rs10;
@@ -125,7 +128,7 @@ function selectEvent(num){
 function selectTime(dir,id){
 	num = parseInt(document.getElementById(id).innerHTML);
 	num += dir;
-	if(id=="s1"||id=="m1"){
+	if(id=="s1"||id=="m1"||id=="h1"){
 		if(num==10) num = 0;
 		else if(num==-1) num = 9;
 	}
