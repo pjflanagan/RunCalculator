@@ -54,30 +54,6 @@ header a:hover{
 	cursor: pointer;
 }
 
-/*----------------------------
-		Result Clock
-----------------------------*/
-#result-clock {
-	width: 100%;
-	padding-left: 20px;
-}
-#result-clock table{
-	width: 100%;
-	font-size: 58px;
-	height: 68px;
-}
-#result-clock table tr td {
-	width: 17%;
-}
-#result-clock table tr td#dec {
-	font-size: 20px;
-	margin-top: 15px;
-	position: absolute;
-}
-#result-clock table tr td#colon {
-	font-size: 54px;
-	padding-left: 7px;
-}
 
 /*----------------------------
 			Input 
@@ -193,6 +169,40 @@ table#split-table tr td:hover{
 	padding-bottom: 4px;
 	margin-top: -2px;
 }
+
+/*----------------------------
+		Result Clock
+----------------------------*/
+#result-clock {
+	width: 100%;
+	padding-left: 20px;
+}
+#result-clock table{
+	width: 100%;
+	font-size: 58px;
+	height: 68px;
+}
+#result-clock table tr td {
+	width: 17%;
+}
+#result-clock table tr td#dec {
+	font-size: 20px;
+	margin-top: 15px;
+	position: absolute;
+}
+#result-clock table tr td#colon {
+	font-size: 54px;
+	padding-left: 7px;
+}
+/*#result-cover {
+	width: 310px;
+	position: absolute;
+	opacity: .2;
+	background: #000;
+	height: 38px;
+	margin-top: 44px;
+	margin-left: -20px;
+}*/
 /*----------------------------
 		 	AD
 ----------------------------*/

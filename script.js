@@ -153,3 +153,10 @@ function togglePaceMode(){
 	else document.getElementById("item-2-title").innerHTML = "TIME";
 	input();
 }
+
+function toggleManualDistance(){
+	//pacemode = !pacemode;
+	//if(pacemode)document.getElementById("item-2-title").innerHTML = "DIST";
+	//else document.getElementById("item-2-title").innerHTML = "EVENT";
+	//input();
+}
