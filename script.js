@@ -70,7 +70,7 @@ function output(){
 	rm1 = Math.floor(split_time/60%10);
 	rs10 = Math.floor(split_time%60/10);
 	rs1 = Math.floor(split_time%60%10);
-	dec = (split_time%60%10%1 + "").substr(1).substr(0,4);
+	dec = (split_time%60%10%1 + "").substr(2)+"000";
 
 	if(hourmode){
 		dec = ":" + rs10 + "" + rs1;
@@ -86,7 +86,7 @@ function output(){
 	document.getElementById("rm1").innerHTML = rm1;
 	document.getElementById("rs10").innerHTML = rs10;
 	document.getElementById("rs1").innerHTML = rs1;
-	document.getElementById("dec").innerHTML = (dec=="") ? ".000" : dec;
+	document.getElementById("dec").innerHTML = "."+dec.substr(0,3); //(dec=="000") ? ".000" : dec;
 }
 
 function cancel(){
