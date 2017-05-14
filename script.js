@@ -179,11 +179,15 @@ function toggleEventMode(){
 			"<table id=\"dist-table\">" +
 			"<tr>" +
 			"<td class=\"gap\"></td>" +
-			"<td id=\"dist-input-td\"><input type=\"number\" id=\"dist-num\" onkeypress=\"input()\" value=\"00.00\"/></td>" +
+			"<td id=\"dist-input-td\"><input type=\"number\" id=\"dist-num\" onkeypress=\"input();\" value=\"00.00\"/></td>" +
 			"<td id=\"dist-unit-td\" onclick=\"toggleUnit();\" ontouchstart=\"event.preventDefault();toggleUnit();\">MILES</td>" +
 			"<td class=\"gap\"></td>" +
 			"</tr>" +
 			"</table>";
+
+			var input = document.getElementById("dist-num");
+			input.focus();
+			input.select();
 	}
 	else {
 		document.getElementById("item-1-title").innerHTML = "EVENT";
