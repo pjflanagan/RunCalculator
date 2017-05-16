@@ -71,9 +71,8 @@
 		margin-top: -5px;
 	}
 	table#dist-table tr td.gap {
-		width: 80px;
+		width: 100px;
 	}
-	table#dist-table tr td#dist-input-td {}
 	input:focus, select:focus, textarea:focus, button:focus { outline: none; }
 	input::-webkit-outer-spin-button,
 	input::-webkit-inner-spin-button {
@@ -81,12 +80,17 @@
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 	}
+    table#dist-table tr td#dist-input-td {
+        width: 220px;
+        height: 52px;
+    }
 	table#dist-table tr td#dist-input-td input#dist-num {
 		border: none;
 		font-size: 52px;
-		text-align: center;
-		height: 44px;
-		width: 120px;
+		text-align: right;
+		height: 52px;
+		width: 220px;
+        padding:10px;
 	}
 	table#dist-table tr td#dist-unit-td {
 		color: #FFF;
@@ -97,6 +101,7 @@
 		margin-top: -2px;
 		font-size: 30px;
 		text-align: center;
+        width:100px;
 	}
 	/*----------------------------
 				TIME
