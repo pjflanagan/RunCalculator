@@ -150,6 +150,9 @@ table#dist-table tr td#dist-unit-td {
 	text-align: center;
     width:80px;
 }
+#dist-num {
+	z-index:10;
+}
 /*----------------------------
 			TIME
 ----------------------------*/
