@@ -133,7 +133,7 @@ table#dist-table tr td#dist-input-td {
 }
 table#dist-table tr td#dist-input-td input#dist-num {
 	border: none;
-	font-size: 32px;
+	font-size: 25px;
 	text-align: right;
     	padding-right:10px;
 	height: 44px;
