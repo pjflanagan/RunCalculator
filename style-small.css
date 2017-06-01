@@ -135,9 +135,10 @@ table#dist-table tr td#dist-input-td input#dist-num {
 	border: none;
 	font-size: 32px;
 	text-align: right;
-    padding:10px;
+    	padding-right:10px;
 	height: 44px;
 	width: 120px;
+	z-index:10;
 }
 table#dist-table tr td#dist-unit-td {
 	color: #FFF;
@@ -149,9 +150,6 @@ table#dist-table tr td#dist-unit-td {
 	font-size: 20px;
 	text-align: center;
     width:80px;
-}
-#dist-num {
-	z-index:10;
 }
 /*----------------------------
 			TIME
