@@ -1,2 +1,4 @@
-# Run Calculator
-An online minimalist pace calculator for runners
+# [RunCalculator.net](runcalculator.net)
+
+A minimalist pace calculator for runners
+
