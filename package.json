@@ -2,7 +2,7 @@
   "name": "Run Calculator",
   "version": "1.0.0",
   "private": true,
-  "description": "Run Calculator",
+  "description": "A running pace calculator designed for runners who want to know their splits for events from the 800 up through the marathon. Just enter in the event you are running, the time you want, and the split you want to see, and the calculator will display your pace.",
   "author": "pjflanagan",
   "keywords": [
     "run",

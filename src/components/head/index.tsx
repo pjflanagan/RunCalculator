@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Helmet } from "react-helmet";
 
 const TITLE = 'Run Calculator';
-const DESCRIPTION = 'For a new PR';
+const DESCRIPTION = 'A running pace calculator designed for runners who want to know their splits for events from the 800 up through the marathon. Just enter in the event you are running, the time you want, and the split you want to see, and the calculator will display your pace.';
 const ROOT = "https://runcalculator.flanny.app";
 const IMG = `${ROOT}/img/social/social.png`;
 const IMG_TW = `${ROOT}/img/social/social-tw.png`;
