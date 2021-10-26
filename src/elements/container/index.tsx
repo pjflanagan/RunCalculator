@@ -23,3 +23,21 @@ export const Row: FC = ({
     </div>
   );
 }
+
+export const RowTitle: FC = () => {
+  return (
+    <></>
+  );
+}
+
+export const RowDivider: FC = () => {
+  return (
+    <></>
+  );
+}
+
+export const RowBody: FC = () => {
+  return (
+    <></>
+  );
+}

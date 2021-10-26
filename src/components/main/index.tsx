@@ -1,16 +1,16 @@
 import React, { FC, useState } from 'react';
 // import { useQueryParam, StringParam } from "use-query-params";
 
-import { calcTime } from 'models';
+import { Time } from 'models';
 // import { } from 'elements';
 
-import * as Style from './style.module.scss';
 import { HeaderComponent } from './0-header';
 import { DistanceComponent } from './1-distance';
 import { TimeInputComponent } from './2-time-in';
 import { SplitComponent } from './3-split';
 import { TimeOutputComponent } from './4-time-out';
 import { AdComponent } from './5-ad';
+import * as Style from './style.module.scss';
 
 export const MainComponent: FC = () => {
 
@@ -27,6 +27,9 @@ export const MainComponent: FC = () => {
   const [splitName, setSplitName] = useState<string>('MILE');
   const [paceMode, setPaceMode] = useState<boolean>(false);
 
+  // TODO: load data from url params
+  // TODO: store cookies based on input
+
   const toggleUnit = () => {
     switch (unit) {
       case 'm':
@@ -38,7 +41,7 @@ export const MainComponent: FC = () => {
     };
   };
 
-  const timeOut = calcTime({
+  const timeOut = Time.calcTime({
     timeIn,
     raceName,
     distance,

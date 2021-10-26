@@ -10,7 +10,7 @@ type TimeInputComponentProps = {
 };
 
 export const TimeInputComponent: FC<TimeInputComponentProps> = ({
-  timeIn, // TODO: don't use this?
+  timeIn,
   setTimeIn,
   paceMode,
   togglePaceMode,
@@ -19,6 +19,11 @@ export const TimeInputComponent: FC<TimeInputComponentProps> = ({
   // TODO: setTimeIn from timeNumbers locally?
 
   const labelDisplay = paceMode ? 'PACE' : 'TIME';
+  const [h1, m10, m1, s10, s1] = makeDisplayTime(timeIn);
+
+  const addTime = (deltaSeconds) => {
+    setTimeIn(timeIn + deltaSeconds);
+  }
 
   return (
     <div className="item light" id="time-item">
