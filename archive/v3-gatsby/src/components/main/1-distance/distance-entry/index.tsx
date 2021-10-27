@@ -34,6 +34,5 @@ export const DistanceEntryComponent: FC<DistanceEntryComponentProps> = ({
         <td className="gap"></td>
       </tr>
     </table>
-
   );
 }

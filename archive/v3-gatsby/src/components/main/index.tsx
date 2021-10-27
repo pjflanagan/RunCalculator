@@ -9,7 +9,7 @@ import { DistanceComponent } from './1-distance';
 import { TimeInputComponent } from './2-time-in';
 import { SplitComponent } from './3-split';
 import { TimeOutputComponent } from './4-time-out';
-import { AdComponent } from './5-ad';
+// import { AdComponent } from './5-ad';
 import * as Style from './style.module.scss';
 
 export const MainComponent: FC = () => {
@@ -53,7 +53,7 @@ export const MainComponent: FC = () => {
 
   return (
     <main className={Style.app}>
-      <div className="container">
+      <div className={Style.container}>
         <HeaderComponent />
         <DistanceComponent
           raceName={raceName}
@@ -78,7 +78,7 @@ export const MainComponent: FC = () => {
         <TimeOutputComponent
           timeOut={timeOut}
         />
-        <AdComponent />
+        {/* <AdComponent /> */}
       </div>
     </main>
   )

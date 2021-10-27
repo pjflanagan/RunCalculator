@@ -1,7 +1,7 @@
 
 import React, { FC, useState } from 'react';
 
-import { makeDisplayTime } from 'models';
+import { Time } from 'models';
 
 import * as Style from './style.module.scss';
 
@@ -13,7 +13,7 @@ export const TimeOutputComponent: FC<TimeOutputComponentProps> = ({
   timeOut,
 }) => {
 
-  const [h1, m10, m1, s10, s1, d] = makeDisplayTime(timeOut);
+  const [h1, m10, m1, s10, s1, d] = Time.makeDisplayTime(timeOut);
 
   return (
     <div id="result-clock" className="clock light">

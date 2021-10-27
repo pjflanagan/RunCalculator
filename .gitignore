@@ -1,7 +1,5 @@
-node_modules/
-.cache
-public
-.env
-.netlify
-.package-lock
 .DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
