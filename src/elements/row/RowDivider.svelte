@@ -3,7 +3,7 @@
 </div>
 
 <style lang="scss">
-	@import '../main.scss';
+	@import 'src/main.scss';
 
 	.divider-holder {
 		height: 100%;

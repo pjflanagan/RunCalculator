@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { Row, RowWidgetHolder } from '../../elements';
+	import { Row, RowWidgetHolder } from '../../elements/index';
 </script>
 
 <Row>
-	<RowWidgetHolder>
-		<div class="header">Run Calculator</div>
-	</RowWidgetHolder>
+	<div class="header">Run Calculator</div>
 </Row>
