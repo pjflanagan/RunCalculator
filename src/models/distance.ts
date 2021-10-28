@@ -6,8 +6,18 @@ export namespace Distance {
     return miles * 1609.344;
   }
 
-  type Event = {
-    name: string;
+  export type Unit = 'm' | 'k';
+
+  type EventName = ''
+    | '200' | '400' | '1000'
+    | '800' | '1200' | '1600'
+    | 'MILE' | '3K' | '2MI'
+    | '3MI' | '5K' | '6K'
+    | '8K' | '5MI' | '10K'
+    | '10MI' | 'HALF' | 'MARA';
+
+  export type Event = {
+    name: EventName;
     distance: number;
   };
 
@@ -102,14 +112,14 @@ export namespace Distance {
     },
   ];
 
-  const get = (name: string, list: Event[]): Event => {
+  const get = (name: EventName, list: Event[]): Event => {
     return list.find(e => e.name === name) || noDistanceEvent;
   }
 
-  export const getEvent = (name: string): Event => get(name, EVENTS);
-  export const getSplit = (name: string): Event => get(name, SPLITS);
+  export const getEvent = (name: EventName): Event => get(name, EVENTS);
+  export const getSplit = (name: EventName): Event => get(name, SPLITS);
 
-  export const makeDisplayEvents = (name: string) =>
-    Loop.getCenteredArray(EVENTS, EVENTS.findIndex(e => e.name === name), 5);
+  export const makeDisplayEvents = (event: Event) =>
+    Loop.getCenteredArray(EVENTS, EVENTS.findIndex(e => e.name === event.name), 5);
 
 }

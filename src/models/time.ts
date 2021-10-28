@@ -5,33 +5,33 @@ export namespace Time {
 
   type calcTimeArgs = {
     timeIn: number;
-    raceName: string;
+    race: Distance.Event;
     distance: number;
     distanceMode: boolean;
-    splitName: string;
+    split: Distance.Event;
     paceMode: boolean;
     unit: 'm' | 'k';
   };
 
   export const calcTime = ({
     timeIn,
-    raceName,
+    race,
     distance: distanceIn,
     distanceMode,
-    splitName,
+    split,
     paceMode,
     unit
   }: calcTimeArgs): number => {
     let factor = 0;
     let distance = 0;
 
-    const splitDistance = Distance.getSplit(splitName).distance;
-    const eventDistance = Distance.getEvent(raceName).distance;
+    const splitDistance = split.distance;
+    const raceDistance = race.distance;
 
     if (!distanceMode) {
       factor = (!paceMode)
-        ? splitDistance / eventDistance
-        : eventDistance / splitDistance;
+        ? splitDistance / raceDistance
+        : raceDistance / splitDistance;
     } else {
       distance = (unit === 'k')
         ? distanceIn * 1000
@@ -48,7 +48,6 @@ export namespace Time {
     return timeIn * factor;
   }
 
-  // TODO: rename to just DisplayTime
   export type DisplayTime = [number, number, number, number, number, string];
 
   export const makeDisplayTime = (time: number): DisplayTime => {
