@@ -50,6 +50,10 @@ export namespace Time {
 
   export type DisplayTime = [number, number, number, number, number, string];
 
+  export const makeDecimalString = (dec: number): string => {
+    return (`${dec}`.substr(2) + "000").substr(0, 3);
+  }
+
   export const makeDisplayTime = (time: number): DisplayTime => {
 
     // let hourmode = false;
@@ -62,7 +66,7 @@ export namespace Time {
     let m1 = Math.floor(time / 60 % 60 % 10);
     let s10 = Math.floor(time % 60 / 10);
     let s1 = Math.floor(time % 60 % 10);
-    let d = ((Math.round(time % 60 % 10 % 1) + "").substr(2) + "000").substr(0, 3);
+    let d = makeDecimalString(Math.round(time % 60 % 10 % 1));
 
     // if (hourmode) {
     //   dec = ":" + rs10 + "" + rs1;

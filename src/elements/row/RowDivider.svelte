@@ -7,12 +7,13 @@
 
 	.divider-holder {
 		height: 100%;
-		padding: 40px 0;
+		width: 26px;
 
 		.divider {
-			width: 4px;
-			background: $backgroundColor;
-			height: 100%;
+			background: $black;
+			height: calc(100% - 40px);
+			width: 6px;
+			margin: 20px 10px;
 		}
 	}
 </style>

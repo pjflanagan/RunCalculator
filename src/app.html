@@ -6,13 +6,23 @@
   <link rel="icon" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   %svelte.head%
-  <style>
+  <style lang="ts">
+    @import url('./reset.scss');
     @import url('./main.scss');
+
+    #svelte {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 
 <body>
-  %svelte.body%
+  <div id="svelte">
+    %svelte.body%
+  </div>
 </body>
 
 </html>

@@ -1,27 +1,30 @@
 <script lang="ts">
-	import { Row } from '../../elements';
+	import { Row, Clock, Panel, Number, Decimal } from '../../elements';
 	import { Time } from '../../models';
 
 	export let timeOut: number;
+
+	$: {
+		console.log(timeOut);
+	}
 
 	$: [h1, m10, m1, s10, s1, d] = Time.makeDisplayTime(timeOut);
 </script>
 
 <Row>
-	<div id="result-clock" class="clock light">
-		<table class="clock">
-			<tr class="clock">
-				{#if h1 !== 0}
-					<td id="h1">{h1}</td>
-					<td id="colon">{':'}</td>
-				{/if}
-				<td id="m10">{m10}</td>
-				<td id="m1">{m1}</td>
-				<td id="colon">{':'}</td>
-				<td id="s10">{s10}</td>
-				<td id="s1">{s1}</td>
-				<td id="dec">{d}</td>
-			</tr>
-		</table>
-	</div>
+	<Clock>
+		{#if h1 !== 0}
+			<Number num={h1} />
+			<Panel>:</Panel>
+		{/if}
+		<Number num={m10} />
+		<Number num={m1} />
+		<Panel>:</Panel>
+		<Number num={s10} />
+		<Number num={s1} />
+		<Decimal dec={d} />
+	</Clock>
 </Row>
+
+<style lang="scss">
+</style>

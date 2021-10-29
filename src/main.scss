@@ -1,13 +1,7 @@
-$backgroundColor: #1C1C1C;
+$black: #1C1C1C;
 
 $bebasFontFamily: 'bebas';
 $digitalFontFamily: 'digital';
-
-:global(::selection) {
-  color: #FFF;
-  background: $backgroundColor;
-  opacity: 1;
-}
 
 @font-face {
   font-family: $digitalFontFamily;
@@ -25,4 +19,10 @@ $digitalFontFamily: 'digital';
   margin: 0;
   width: 100%;
   height: 100%;
+}
+
+:global(::selection) {
+  color: #FFF;
+  background: $black;
+  opacity: 1;
 }

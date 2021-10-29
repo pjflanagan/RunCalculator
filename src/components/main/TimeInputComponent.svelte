@@ -1,5 +1,13 @@
 <script lang="ts">
-	import { Row, RowDivider, RowLabel, RowWidgetHolder } from '../../elements/index';
+	import {
+		Row,
+		RowDivider,
+		RowLabel,
+		RowWidgetHolder,
+		Clock,
+		Number,
+		Panel
+	} from '../../elements/index';
 	import { Time } from '../../models';
 
 	export let timeIn: number;
@@ -18,8 +26,8 @@
 	<RowLabel onClick={togglePaceMode}>{labelDisplay}</RowLabel>
 	<RowDivider />
 	<RowWidgetHolder>
-		<table class="hover" id="time-table">
-			<tr class="arrows">
+		<Row>
+			<!-- <tr class="arrows">
 				<td on:click={() => addTime(3600)}><span class="glyphicon glyphicon-chevron-up" /></td>
 				<td />
 				<td on:click={() => addTime(600)}><span class="glyphicon glyphicon-chevron-up" /></td>
@@ -27,17 +35,17 @@
 				<td />
 				<td on:click={() => addTime(10)}><span class="glyphicon glyphicon-chevron-up" /></td>
 				<td on:click={() => addTime(1)}><span class="glyphicon glyphicon-chevron-up" /></td>
-			</tr>
-			<tr class="clock">
-				<td on:click={() => addTime(3600)}>{h1}</td>
-				<td>:</td>
-				<td on:click={() => addTime(600)}>{m10}</td>
-				<td on:click={() => addTime(60)}>{m1}</td>
-				<td>:</td>
-				<td on:click={() => addTime(10)}>{s10}</td>
-				<td on:click={() => addTime(1)}>{s1}</td>
-			</tr>
-			<tr class="arrows" id="bottom-arrows">
+			</tr> -->
+			<Clock>
+				<Number num={h1} onClick={() => addTime(3600)} />
+				<Panel>:</Panel>
+				<Number num={m10} onClick={() => addTime(600)} />
+				<Number num={m1} onClick={() => addTime(60)} />
+				<Panel>:</Panel>
+				<Number num={s10} onClick={() => addTime(10)} />
+				<Number num={s1} onClick={() => addTime(1)} />
+			</Clock>
+			<!-- <tr class="arrows" id="bottom-arrows">
 				<td on:click={() => addTime(-3600)}><span class="glyphicon glyphicon-chevron-down" /></td>
 				<td />
 				<td on:click={() => addTime(-600)}><span class="glyphicon glyphicon-chevron-down" /></td>
@@ -45,7 +53,7 @@
 				<td />
 				<td on:click={() => addTime(-10)}><span class="glyphicon glyphicon-chevron-down" /></td>
 				<td on:click={() => addTime(-1)}><span class="glyphicon glyphicon-chevron-down" /></td>
-			</tr>
-		</table>
+			</tr> -->
+		</Row>
 	</RowWidgetHolder>
 </Row>
