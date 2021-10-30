@@ -4,10 +4,6 @@
 
 	export let timeOut: number;
 
-	$: {
-		console.log(timeOut);
-	}
-
 	$: [h1, m10, m1, s10, s1, d] = Time.makeDisplayTime(timeOut);
 </script>
 

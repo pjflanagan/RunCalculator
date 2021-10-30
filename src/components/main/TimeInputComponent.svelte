@@ -19,6 +19,7 @@
 
 	const addTime = (deltaSeconds: number) => {
 		timeIn = timeIn + deltaSeconds;
+		console.log(timeIn);
 	};
 </script>
 

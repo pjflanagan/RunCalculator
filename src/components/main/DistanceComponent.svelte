@@ -13,7 +13,7 @@
 	export let toggleDistanceMode: () => void;
 	export let toggleUnit: () => void;
 
-	const labelDisplay = distanceMode ? 'DISTANCE' : 'EVENT';
+	$: labelDisplay = distanceMode ? 'DISTANCE' : 'EVENT';
 </script>
 
 <Row>

@@ -8,7 +8,7 @@ export namespace Distance {
 
   export type Unit = 'm' | 'k';
 
-  type EventName = ''
+  export type EventName = ''
     | '200' | '400' | '1000'
     | '800' | '1200' | '1600'
     | 'MILE' | '3K' | '2MI'

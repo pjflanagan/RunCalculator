@@ -16,6 +16,8 @@
 <style lang="scss">
 	.panel {
 		width: 16.666%;
+		text-align: center;
+		font-size: 2em;
 
 		&.hover {
 			cursor: pointer;

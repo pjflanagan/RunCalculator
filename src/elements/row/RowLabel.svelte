@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let onClick: () => void;
+	export let onClick: () => void = null;
 </script>
 
 <div class="label-holder">

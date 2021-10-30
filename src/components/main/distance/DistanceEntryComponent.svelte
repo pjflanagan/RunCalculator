@@ -5,6 +5,8 @@
 	export let unit: Distance.Unit;
 
 	export let toggleUnit: () => void;
+
+	$: displayUnit = unit === 'm' ? 'MILES' : 'KILOMETERS';
 </script>
 
 <div>
@@ -12,6 +14,6 @@
 		<input type="number" bind:value={distance} />
 	</div>
 	<div class="unit-holder">
-		<div class="unit" on:click={toggleUnit}>{unit}</div>
+		<div class="unit" on:click={toggleUnit}>{displayUnit}</div>
 	</div>
 </div>

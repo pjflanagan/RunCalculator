@@ -4,6 +4,7 @@
 	import HeaderComponent from './main/HeaderComponent.svelte';
 	import DistanceComponent from './main/DistanceComponent.svelte';
 	import TimeInputComponent from './main/TimeInputComponent.svelte';
+	import SplitComponent from './main/SplitComponent.svelte';
 	import TimeOutputComponent from './main/TimeOutputComponent.svelte';
 
 	// distance
@@ -35,12 +36,21 @@
 			}[distanceData.unit] || 'm';
 	};
 
-	const timeOut = Time.calcTime({
+	$: timeOut = Time.calcTime({
 		split,
 		timeIn,
 		paceMode,
 		...distanceData
 	});
+
+	$: {
+		console.log(timeOut, {
+			split,
+			timeIn,
+			paceMode,
+			...distanceData
+		});
+	}
 </script>
 
 <!-- HTML -->
@@ -53,9 +63,7 @@
 			{toggleUnit}
 		/>
 		<TimeInputComponent {timeIn} {paceMode} togglePaceMode={() => (paceMode = !paceMode)} />
-		<!-- <SplitComponent
-      splitName={splitName}
-    /> -->
+		<SplitComponent {split} />
 		<TimeOutputComponent {timeOut} />
 		<!-- {/* <AdComponent /> */} -->
 	</div>
