@@ -7,8 +7,9 @@
 
 	.clock {
 		display: flex;
-		background: $black;
 		width: 100%;
+		height: 100%;
+		background: $black;
 		color: #fff;
 		font-family: $digitalFontFamily;
 	}

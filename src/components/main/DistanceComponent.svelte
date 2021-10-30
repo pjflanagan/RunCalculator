@@ -12,6 +12,7 @@
 
 	export let toggleDistanceMode: () => void;
 	export let toggleUnit: () => void;
+	export let setRace: (event: Distance.Event) => void;
 
 	$: labelDisplay = distanceMode ? 'DISTANCE' : 'EVENT';
 </script>
@@ -25,7 +26,7 @@
 		{#if distanceMode}
 			<DistanceEntryComponent {distance} {unit} {toggleUnit} />
 		{:else}
-			<EventEntryComponent {race} />
+			<EventEntryComponent {setRace} {race} />
 		{/if}
 	</RowWidgetHolder>
 </Row>

@@ -21,6 +21,10 @@
 		unit: 'm'
 	};
 
+	const setRace = (event: Distance.Event) => {
+		distanceData.race = event;
+	};
+
 	// time
 	let timeIn = 0;
 	let paceMode = false;
@@ -36,21 +40,16 @@
 			}[distanceData.unit] || 'm';
 	};
 
+	const addTime = (deltaSeconds: number) => {
+		timeIn = timeIn + deltaSeconds;
+	};
+
 	$: timeOut = Time.calcTime({
 		split,
 		timeIn,
 		paceMode,
 		...distanceData
 	});
-
-	$: {
-		console.log(timeOut, {
-			split,
-			timeIn,
-			paceMode,
-			...distanceData
-		});
-	}
 </script>
 
 <!-- HTML -->
@@ -61,8 +60,14 @@
 			{...distanceData}
 			toggleDistanceMode={() => (distanceData.distanceMode = !distanceData.distanceMode)}
 			{toggleUnit}
+			{setRace}
 		/>
-		<TimeInputComponent {timeIn} {paceMode} togglePaceMode={() => (paceMode = !paceMode)} />
+		<TimeInputComponent
+			{addTime}
+			{timeIn}
+			{paceMode}
+			togglePaceMode={() => (paceMode = !paceMode)}
+		/>
 		<SplitComponent {split} />
 		<TimeOutputComponent {timeOut} />
 		<!-- {/* <AdComponent /> */} -->
@@ -73,10 +78,11 @@
 	.app {
 		width: 100%;
 		height: 100%;
+
 		.container {
 			margin: 0 auto;
 			height: 100%;
-			width: 80%;
+			width: 100%;
 		}
 	}
 </style>
