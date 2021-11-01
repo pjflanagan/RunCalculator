@@ -14,7 +14,13 @@
 		height: 100%;
 
 		.label {
+			position: relative;
 			text-align: center;
+			top: 50%;
+			margin-top: -30px;
+			height: 60px;
+			font-size: 35px;
+			line-height: 60px;
 		}
 	}
 </style>

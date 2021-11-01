@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Row, Clock, Panel, Number, Decimal } from '../../elements';
+	import { Row, Clock, Colon, Number, Decimal } from '../../elements';
 	import { Time } from '../../models';
 
 	export let timeOut: number;
@@ -11,11 +11,11 @@
 	<Clock>
 		{#if h1 !== 0}
 			<Number num={h1} />
-			<Panel>:</Panel>
+			<Colon />
 		{/if}
 		<Number num={m10} />
 		<Number num={m1} />
-		<Panel>:</Panel>
+		<Colon />
 		<Number num={s10} />
 		<Number num={s1} />
 		<Decimal dec={d} />

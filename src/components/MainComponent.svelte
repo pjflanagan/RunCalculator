@@ -7,6 +7,8 @@
 	import SplitComponent from './main/SplitComponent.svelte';
 	import TimeOutputComponent from './main/TimeOutputComponent.svelte';
 
+	const MAX_TIME_IN = 9 * 60 * 60 + 59 * 60 + 59;
+
 	// distance
 	type distanceDataType = {
 		race: Distance.Event;
@@ -25,13 +27,6 @@
 		distanceData.race = event;
 	};
 
-	// time
-	let timeIn = 0;
-	let paceMode = false;
-
-	// split
-	let split = Distance.getEvent('MILE');
-
 	const toggleUnit = () => {
 		distanceData.unit =
 			{
@@ -40,8 +35,22 @@
 			}[distanceData.unit] || 'm';
 	};
 
+	// time
+	let timeIn = 0;
+	let paceMode = false;
+
 	const addTime = (deltaSeconds: number) => {
+		if (timeIn + deltaSeconds > MAX_TIME_IN) {
+			return;
+		}
 		timeIn = timeIn + deltaSeconds;
+	};
+
+	// split
+	let split = Distance.getEvent('MILE');
+
+	const selectSplit = (name: string) => {
+		split = Distance.getSplit(name as Distance.EventName);
 	};
 
 	$: timeOut = Time.calcTime({
@@ -68,7 +77,7 @@
 			{paceMode}
 			togglePaceMode={() => (paceMode = !paceMode)}
 		/>
-		<SplitComponent {split} />
+		<SplitComponent {split} {selectSplit} />
 		<TimeOutputComponent {timeOut} />
 		<!-- {/* <AdComponent /> */} -->
 	</div>
@@ -78,6 +87,8 @@
 	.app {
 		width: 100%;
 		height: 100%;
+		top: 0px;
+		position: fixed;
 
 		.container {
 			margin: 0 auto;

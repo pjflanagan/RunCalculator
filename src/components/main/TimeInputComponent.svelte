@@ -6,7 +6,7 @@
 		RowWidgetHolder,
 		Clock,
 		Number,
-		Panel
+		Colon
 	} from '../../elements/index';
 	import { Time } from '../../models';
 
@@ -37,10 +37,10 @@
 		<div class="clock-holder">
 			<Clock>
 				<Number num={h1} onClick={() => addTime(3600)} />
-				<Panel>:</Panel>
+				<Colon />
 				<Number num={m10} onClick={() => addTime(600)} />
 				<Number num={m1} onClick={() => addTime(60)} />
-				<Panel>:</Panel>
+				<Colon />
 				<Number num={s10} onClick={() => addTime(10)} />
 				<Number num={s1} onClick={() => addTime(1)} />
 			</Clock>

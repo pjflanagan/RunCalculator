@@ -1,13 +1,10 @@
 <script lang="ts">
 	import { Row, RowDivider, RowLabel, RowWidgetHolder } from '../../elements/index';
-	import { Distance } from '../../models';
+	import type { Distance } from '../../models';
 	import Split from './split/Split.svelte';
 
 	export let split: Distance.Event;
-
-	const selectSplit = (name: string) => {
-		split = Distance.getSplit(name as Distance.EventName);
-	};
+	export let selectSplit: (name: string) => void;
 </script>
 
 <Row>
