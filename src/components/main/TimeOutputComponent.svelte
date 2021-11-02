@@ -11,7 +11,7 @@
 	const large = true;
 </script>
 
-<Row>
+<Row height={24}>
 	<Clock>
 		{#if h1 !== 0}
 			<Number num={h1} {large} />

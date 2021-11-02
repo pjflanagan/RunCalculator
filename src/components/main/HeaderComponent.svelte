@@ -2,7 +2,7 @@
 	import { Row, RowWidgetHolder } from '../../elements/index';
 </script>
 
-<Row>
+<Row height={16}>
 	<div class="header-holder">
 		<div class="header">Run Calculator</div>
 	</div>

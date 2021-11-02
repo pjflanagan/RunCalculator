@@ -1,11 +1,14 @@
-<div class="row">
+<script lang="ts">
+	export let height = 20;
+</script>
+
+<div class="row" style={`height: calc(${height}% - 8px)`}>
 	<slot />
 </div>
 
 <style lang="css">
 	.row {
 		width: 100%;
-		height: calc(20% - 8px);
 		display: flex;
 		margin: 8px 0;
 	}

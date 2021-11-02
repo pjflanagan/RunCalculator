@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Icon from 'svelte-awesome';
+	import { chevronUp, chevronDown } from 'svelte-awesome/icons';
 	import {
 		Row,
 		RowDivider,
@@ -24,14 +26,13 @@
 	<RowDivider />
 	<RowWidgetHolder>
 		<div class="arrows-holder">
-			<div class="arrow-holder" on:click={() => addTime(3600)}>+</div>
+			<div class="arrow-holder" on:click={() => addTime(3600)}><Icon data={chevronUp} /></div>
 			<div class="arrow-holder" />
-			<div class="arrow-holder" on:click={() => addTime(600)}>+</div>
-			<div class="arrow-holder" on:click={() => addTime(60)}>+</div>
+			<div class="arrow-holder" on:click={() => addTime(600)}><Icon data={chevronUp} /></div>
+			<div class="arrow-holder" on:click={() => addTime(60)}><Icon data={chevronUp} /></div>
 			<div class="arrow-holder" />
-			<div class="arrow-holder" on:click={() => addTime(10)}>+</div>
-			<div class="arrow-holder" on:click={() => addTime(1)}>+</div>
-			<!-- <span class="glyphicon glyphicon-chevron-up" /> -->
+			<div class="arrow-holder" on:click={() => addTime(10)}><Icon data={chevronUp} /></div>
+			<div class="arrow-holder" on:click={() => addTime(1)}><Icon data={chevronUp} /></div>
 		</div>
 		<div class="clock-holder">
 			<Clock>
@@ -45,14 +46,13 @@
 			</Clock>
 		</div>
 		<div class="arrows-holder">
-			<div class="arrow-holder" on:click={() => addTime(-3600)}>-</div>
+			<div class="arrow-holder" on:click={() => addTime(-3600)}><Icon data={chevronDown} /></div>
 			<div class="arrow-holder" />
-			<div class="arrow-holder" on:click={() => addTime(-600)}>-</div>
-			<div class="arrow-holder" on:click={() => addTime(-60)}>-</div>
+			<div class="arrow-holder" on:click={() => addTime(-600)}><Icon data={chevronDown} /></div>
+			<div class="arrow-holder" on:click={() => addTime(-60)}><Icon data={chevronDown} /></div>
 			<div class="arrow-holder" />
-			<div class="arrow-holder" on:click={() => addTime(-10)}>-</div>
-			<div class="arrow-holder" on:click={() => addTime(-1)}>-</div>
-			<!-- <span class="glyphicon glyphicon-chevron-down" /> -->
+			<div class="arrow-holder" on:click={() => addTime(-10)}><Icon data={chevronDown} /></div>
+			<div class="arrow-holder" on:click={() => addTime(-1)}><Icon data={chevronDown} /></div>
 		</div>
 	</RowWidgetHolder>
 </Row>
