@@ -17,9 +17,8 @@
 			position: relative;
 			text-align: center;
 			top: 50%;
-			margin-top: -30px;
-			height: 60px;
-			font-size: 35px;
+			transform: translateY(-50%);
+			font-size: 32px;
 			line-height: 60px;
 		}
 	}

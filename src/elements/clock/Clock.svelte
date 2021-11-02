@@ -11,6 +11,5 @@
 		height: 100%;
 		background: $black;
 		color: #fff;
-		font-family: $digitalFontFamily;
 	}
 </style>

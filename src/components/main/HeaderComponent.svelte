@@ -3,13 +3,24 @@
 </script>
 
 <Row>
-	<div class="header">Run Calculator</div>
+	<div class="header-holder">
+		<div class="header">Run Calculator</div>
+	</div>
 </Row>
 
 <style lang="scss">
-	.header {
-		font-size: 3.6em;
-		text-align: center;
+	.header-holder {
+		height: 100%;
 		width: 100%;
+
+		.header {
+			position: relative;
+			top: 50%;
+			width: 100%;
+			transform: translateY(-50%);
+			font-size: 3.6em;
+			text-align: center;
+			width: 100%;
+		}
 	}
 </style>

@@ -18,18 +18,20 @@
 	@import '../../../main.scss';
 
 	.split-holder {
-		width: 25%;
+		width: calc(25% - 12px);
+		margin: 0 6px;
 
 		.split {
 			text-align: center;
 			cursor: pointer;
-			margin: 12px;
 			padding: 12px;
 			background: #fff;
+			transition: background 0.2s;
 
 			&.selected {
 				color: #fff;
 				background: $black;
+				cursor: default;
 			}
 		}
 	}

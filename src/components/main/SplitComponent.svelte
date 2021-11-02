@@ -24,6 +24,10 @@
 	@import '../../main.scss';
 
 	.split-picker {
+		position: relative;
 		display: flex;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 42px;
 	}
 </style>

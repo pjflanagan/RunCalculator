@@ -5,7 +5,7 @@
 <style lang="css">
 	.row {
 		width: 100%;
-		height: 20%;
+		height: calc(20% - 8px);
 		display: flex;
 		margin: 8px 0;
 	}

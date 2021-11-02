@@ -24,15 +24,14 @@
 	<RowDivider />
 	<RowWidgetHolder>
 		<div class="arrows-holder">
-			<!-- <tr class="arrows">
-          <td on:click={() => addTime(3600)}><span class="glyphicon glyphicon-chevron-up" /></td>
-          <td />
-          <td on:click={() => addTime(600)}><span class="glyphicon glyphicon-chevron-up" /></td>
-          <td on:click={() => addTime(60)}><span class="glyphicon glyphicon-chevron-up" /></td>
-          <td />
-          <td on:click={() => addTime(10)}><span class="glyphicon glyphicon-chevron-up" /></td>
-          <td on:click={() => addTime(1)}><span class="glyphicon glyphicon-chevron-up" /></td>
-        </tr> -->
+			<div class="arrow-holder" on:click={() => addTime(3600)}>+</div>
+			<div class="arrow-holder" />
+			<div class="arrow-holder" on:click={() => addTime(600)}>+</div>
+			<div class="arrow-holder" on:click={() => addTime(60)}>+</div>
+			<div class="arrow-holder" />
+			<div class="arrow-holder" on:click={() => addTime(10)}>+</div>
+			<div class="arrow-holder" on:click={() => addTime(1)}>+</div>
+			<!-- <span class="glyphicon glyphicon-chevron-up" /> -->
 		</div>
 		<div class="clock-holder">
 			<Clock>
@@ -46,15 +45,14 @@
 			</Clock>
 		</div>
 		<div class="arrows-holder">
-			<!-- <tr class="arrows" id="bottom-arrows">
-          <td on:click={() => addTime(-3600)}><span class="glyphicon glyphicon-chevron-down" /></td>
-          <td />
-          <td on:click={() => addTime(-600)}><span class="glyphicon glyphicon-chevron-down" /></td>
-          <td on:click={() => addTime(-60)}><span class="glyphicon glyphicon-chevron-down" /></td>
-          <td />
-          <td on:click={() => addTime(-10)}><span class="glyphicon glyphicon-chevron-down" /></td>
-          <td on:click={() => addTime(-1)}><span class="glyphicon glyphicon-chevron-down" /></td>
-        </tr> -->
+			<div class="arrow-holder" on:click={() => addTime(-3600)}>-</div>
+			<div class="arrow-holder" />
+			<div class="arrow-holder" on:click={() => addTime(-600)}>-</div>
+			<div class="arrow-holder" on:click={() => addTime(-60)}>-</div>
+			<div class="arrow-holder" />
+			<div class="arrow-holder" on:click={() => addTime(-10)}>-</div>
+			<div class="arrow-holder" on:click={() => addTime(-1)}>-</div>
+			<!-- <span class="glyphicon glyphicon-chevron-down" /> -->
 		</div>
 	</RowWidgetHolder>
 </Row>
@@ -62,6 +60,12 @@
 <style lang="scss">
 	.arrows-holder {
 		height: 20px;
+		display: flex;
+
+		.arrow-holder {
+			width: 16.666%;
+			text-align: center;
+		}
 	}
 	.clock-holder {
 		height: calc(100% - 40px);

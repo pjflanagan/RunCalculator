@@ -10,10 +10,13 @@
 		width: 18px;
 
 		.divider {
+			position: relative;
+			margin: 0 auto;
+			top: 50%;
+			transform: translateY(-50%);
 			background: $black;
-			height: calc(100% - 40px);
-			width: 4px;
-			margin: 20px 7px;
+			height: 56px;
+			width: 5px;
 		}
 	}
 </style>

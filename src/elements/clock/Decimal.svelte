@@ -33,6 +33,9 @@
 
 <style lang="scss">
 	.decimal {
-		font-size: 12px;
+		position: relative;
+		top: 50%;
+		transform: translateY(-100%);
+		font-size: 26px;
 	}
 </style>

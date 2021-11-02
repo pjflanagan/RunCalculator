@@ -40,10 +40,13 @@
 	let paceMode = false;
 
 	const addTime = (deltaSeconds: number) => {
-		if (timeIn + deltaSeconds > MAX_TIME_IN) {
+		let newTime = timeIn + deltaSeconds;
+		if (newTime > MAX_TIME_IN) {
+			return;
+		} else if (newTime < 0) {
 			return;
 		}
-		timeIn = timeIn + deltaSeconds;
+		timeIn = newTime;
 	};
 
 	// split
