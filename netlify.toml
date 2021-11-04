@@ -1,3 +1,4 @@
 [build]
+  node_bundler = "esbuild"
   command = "npm run build"
   publish = "build"
