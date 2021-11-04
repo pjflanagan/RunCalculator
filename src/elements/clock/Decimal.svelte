@@ -1,34 +1,36 @@
 <script lang="ts">
-	import { afterUpdate } from 'svelte';
 	import { Time } from '../../models';
 	import Panel from './Panel.svelte';
 
 	export let dec: string;
 
-	let displayDecimal = '000';
-
-	const animateDecimalChange = (count: number) => {
-		if (count === 0) {
-			displayDecimal = dec;
-			return;
+	const cycle = (node: Node, {}) => {
+		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
+		if (!valid) {
+			throw new Error(`This transition only works on elements with a single text node child`);
 		}
-		displayDecimal = Time.makeDecimalString(Math.random());
-		console.log(displayDecimal);
-		setTimeout(() => animateDecimalChange(count - 1), 40);
+
+		const text = node.textContent;
+		return {
+			duration: 240,
+			tick: (t: number) => {
+				if (t === 1) {
+					node.textContent = text;
+					return;
+				}
+				const displayDec = `.${Time.makeDecimalString(Math.random())}`;
+				node.textContent = displayDec;
+			}
+		};
 	};
-
-	afterUpdate(() => {
-		if (dec !== displayDecimal) {
-			const changeCount = Math.floor(Math.random() * 10) + 5;
-			animateDecimalChange(changeCount);
-		}
-	});
 </script>
 
 <Panel>
-	<div class="decimal">
-		.{displayDecimal}
-	</div>
+	{#key dec}
+		<div class="decimal" in:cycle>
+			{`.${dec}`}
+		</div>
+	{/key}
 </Panel>
 
 <style lang="scss">
