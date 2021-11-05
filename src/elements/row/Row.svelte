@@ -2,14 +2,14 @@
 	export let height = 20;
 </script>
 
-<div class="row" style={`height: calc(${height}% - 8px)`}>
+<div class="row" style={`height: ${height}%`}>
 	<slot />
 </div>
 
-<style lang="css">
+<style lang="scss">
 	.row {
 		width: 100%;
 		display: flex;
-		margin: 8px 0;
+		margin: 0;
 	}
 </style>

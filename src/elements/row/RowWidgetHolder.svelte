@@ -4,6 +4,6 @@
 
 <style>
 	.widget-holder {
-		width: calc(80% - 26px);
+		width: calc(80% - 18px);
 	}
 </style>

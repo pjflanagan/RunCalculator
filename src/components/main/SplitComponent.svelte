@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { Row, RowDivider, RowLabel, RowWidgetHolder } from '../../elements/index';
-	import type { Distance } from '../../models';
+	import { Distance } from '../../models';
 	import Split from './split/Split.svelte';
 
 	export let split: Distance.Event;
 	export let selectSplit: (name: string) => void;
+
+	$: splitBackerMarginLeft = Distance.getSplitIndex(split);
 </script>
 
 <Row>
@@ -12,10 +14,10 @@
 	<RowDivider />
 	<RowWidgetHolder>
 		<div class="split-picker">
-			<Split {split} {selectSplit} splitName={'200'} />
-			<Split {split} {selectSplit} splitName={'400'} />
-			<Split {split} {selectSplit} splitName={'800'} />
-			<Split {split} {selectSplit} splitName={'MILE'} />
+			{#each Distance.SPLITS as splitOption}
+				<Split {split} {selectSplit} splitName={splitOption.name} />
+			{/each}
+			<div class="split-backer" style={`left: ${25 * splitBackerMarginLeft}%`} />
 		</div>
 	</RowWidgetHolder>
 </Row>
@@ -29,5 +31,16 @@
 		top: 50%;
 		transform: translateY(-50%);
 		height: 42px;
+
+		.split-backer {
+			position: fixed;
+			height: 42px;
+			width: 25%;
+			top: 50%;
+			transform: translateY(-50%);
+			background: $black;
+			z-index: 1;
+			transition: left 0.2s;
+		}
 	}
 </style>

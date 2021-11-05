@@ -43,10 +43,12 @@ use an "backdrop-filter: invert(1);" box on top to flip text -->
 		.event-holder {
 			width: 20%;
 			height: 100%;
+			cursor: pointer;
 
 			&.selected {
 				background: $black;
 				color: #fff;
+				cursor: default;
 			}
 			&.mid {
 				color: $black;

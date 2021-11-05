@@ -23,4 +23,12 @@
 			width: 100%;
 		}
 	}
+
+	@media (min-width: 580px) {
+		.header-holder {
+			.header {
+				font-size: 6.9em;
+			}
+		}
+	}
 </style>

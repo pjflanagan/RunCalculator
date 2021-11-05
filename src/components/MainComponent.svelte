@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Distance, Time } from '../models';
+	import { Container } from '../elements';
 
 	import HeaderComponent from './main/HeaderComponent.svelte';
 	import DistanceComponent from './main/DistanceComponent.svelte';
@@ -65,38 +66,16 @@
 </script>
 
 <!-- HTML -->
-<main class="app">
-	<div class="container">
-		<HeaderComponent />
-		<DistanceComponent
-			{...distanceData}
-			toggleDistanceMode={() => (distanceData.distanceMode = !distanceData.distanceMode)}
-			{toggleUnit}
-			{setRace}
-		/>
-		<TimeInputComponent
-			{addTime}
-			{timeIn}
-			{paceMode}
-			togglePaceMode={() => (paceMode = !paceMode)}
-		/>
-		<SplitComponent {split} {selectSplit} />
-		<TimeOutputComponent {timeOut} />
-		<!-- {/* <AdComponent /> */} -->
-	</div>
-</main>
-
-<style lang="scss">
-	.app {
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		position: fixed;
-
-		.container {
-			margin: 0 auto;
-			height: 100%;
-			width: 100%;
-		}
-	}
-</style>
+<Container>
+	<HeaderComponent />
+	<DistanceComponent
+		{...distanceData}
+		toggleDistanceMode={() => (distanceData.distanceMode = !distanceData.distanceMode)}
+		{toggleUnit}
+		{setRace}
+	/>
+	<TimeInputComponent {addTime} {timeIn} {paceMode} togglePaceMode={() => (paceMode = !paceMode)} />
+	<SplitComponent {split} {selectSplit} />
+	<TimeOutputComponent {timeOut} />
+	<!-- {/* <AdComponent /> */} -->
+</Container>

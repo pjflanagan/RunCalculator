@@ -2,6 +2,8 @@ import { Loop } from "./util";
 
 export namespace Distance {
 
+  const K = 1000;
+
   export const convertMilesToMeters = (miles: number): number => {
     return miles * 1609.344;
   }
@@ -45,7 +47,7 @@ export namespace Distance {
     },
     {
       name: '3K',
-      distance: 3000,
+      distance: 3 * K,
     },
     {
       name: '2MI',
@@ -57,15 +59,15 @@ export namespace Distance {
     },
     {
       name: '5K',
-      distance: 5000,
+      distance: 5 * K,
     },
     {
       name: '6K',
-      distance: 6000,
+      distance: 6 * K,
     },
     {
       name: '8K',
-      distance: 8000,
+      distance: 8 * K,
     },
     {
       name: '5MI',
@@ -73,7 +75,7 @@ export namespace Distance {
     },
     {
       name: '10K',
-      distance: 1000,
+      distance: 10 * K,
     },
     {
       name: '10MI',
@@ -103,10 +105,6 @@ export namespace Distance {
       distance: 800,
     },
     {
-      name: '1000',
-      distance: 1000,
-    },
-    {
       name: 'MILE',
       distance: convertMilesToMeters(1),
     },
@@ -118,6 +116,10 @@ export namespace Distance {
 
   export const getEvent = (name: EventName): Event => get(name, EVENTS);
   export const getSplit = (name: EventName): Event => get(name, SPLITS);
+
+  export const getSplitIndex = (event: Event): number => {
+    return SPLITS.findIndex(split => event.name === split.name);
+  }
 
   export const makeDisplayEvents = (event: Event) =>
     Loop.getCenteredArray(EVENTS, EVENTS.findIndex(e => e.name === event.name), 5);
