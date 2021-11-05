@@ -10,7 +10,7 @@ export namespace Time {
     distanceMode: boolean;
     split: Distance.Event;
     paceMode: boolean;
-    unit: 'm' | 'k';
+    unit: Distance.Unit;
   };
 
   export const calcTime = ({

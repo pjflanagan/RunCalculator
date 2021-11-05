@@ -8,6 +8,8 @@ export namespace Distance {
     return miles * 1609.344;
   }
 
+  // k is kilometers (in name alone, it is actually represented by meters)
+  // m is miles
   export type Unit = 'm' | 'k';
 
   export type EventName = ''
