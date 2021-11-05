@@ -4,7 +4,7 @@
 	export let race: Distance.Event;
 	export let setRace: (event: Distance.Event) => void;
 
-	$: [e1, e2, e3, e4, e5] = Distance.makeDisplayEvents(race);
+	$: [e0, e1, e2, e3, e4, e5, e6] = Distance.makeDisplayEvents(race);
 </script>
 
 <!-- 
@@ -13,20 +13,26 @@ make them slide into place when they change
  -->
 
 <div class="event-picker">
-	<div class="event-holder end">
+	<div class="event-holder holder-3">
+		<div class="event" on:click={() => setRace(e0)}>{e0.name}</div>
+	</div>
+	<div class="event-holder holder-2">
 		<div class="event" on:click={() => setRace(e1)}>{e1.name}</div>
 	</div>
-	<div class="event-holder mid">
+	<div class="event-holder holder-1">
 		<div class="event" on:click={() => setRace(e2)}>{e2.name}</div>
 	</div>
 	<div class="event-holder selected">
 		<div class="event">{e3.name}</div>
 	</div>
-	<div class="event-holder mid">
+	<div class="event-holder holder-1">
 		<div class="event" on:click={() => setRace(e4)}>{e4.name}</div>
 	</div>
-	<div class="event-holder end">
+	<div class="event-holder holder-2">
 		<div class="event" on:click={() => setRace(e5)}>{e5.name}</div>
+	</div>
+	<div class="event-holder holder-3">
+		<div class="event" on:click={() => setRace(e6)}>{e6.name}</div>
 	</div>
 </div>
 
@@ -36,28 +42,35 @@ make them slide into place when they change
 	.event-picker {
 		position: relative;
 		display: flex;
+		height: 42px;
 		top: 50%;
 		transform: translateY(-50%);
-		height: 42px;
 
 		.event-holder {
-			width: 20%;
 			height: 100%;
 			cursor: pointer;
 			font-size: 22px;
 
 			&.selected {
+				width: 24%;
 				background: $black;
 				color: #fff;
 				cursor: default;
 			}
-			&.mid {
+			&.holder-1 {
+				width: 16%;
 				color: $black;
 				font-size: 18px;
 			}
-			&.end {
+			&.holder-2 {
+				width: 12%;
 				color: $grey;
 				font-size: 14px;
+			}
+			&.holder-3 {
+				width: 10%;
+				color: $grey;
+				font-size: 10px;
 			}
 
 			.event {

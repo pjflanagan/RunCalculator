@@ -128,6 +128,6 @@ export namespace Distance {
   }
 
   export const makeDisplayEvents = (event: Event) =>
-    Loop.getCenteredArray(EVENTS, EVENTS.findIndex(e => e.name === event.name), 5);
+    Loop.getCenteredArray(EVENTS, EVENTS.findIndex(e => e.name === event.name), 7);
 
 }
