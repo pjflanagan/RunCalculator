@@ -9,8 +9,9 @@
 		Clock,
 		Number,
 		Colon,
-		Arrow
-	} from '../../elements/index';
+		Arrow,
+		Unit
+	} from '../../elements';
 	import { Time } from '../../models';
 
 	export let timeIn: number;
@@ -38,12 +39,15 @@
 		<div class="clock-holder">
 			<Clock>
 				<Number num={h1} onClick={() => addTime(3600)} />
+				<Unit unit="h" />
 				<Colon />
 				<Number num={m10} onClick={() => addTime(600)} />
 				<Number num={m1} onClick={() => addTime(60)} />
+				<Unit unit="m" />
 				<Colon />
 				<Number num={s10} onClick={() => addTime(10)} />
 				<Number num={s1} onClick={() => addTime(1)} />
+				<Unit unit="s" />
 			</Clock>
 		</div>
 		<div class="arrows-holder">

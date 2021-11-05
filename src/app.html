@@ -39,7 +39,8 @@
   <meta name="twitter:image" content="/img/social-tw.png" />
 
   <!-- STYLE -->
-  <style lang="ts">
+  <style lang="scss">
+    /* TODO: TODO: TODO: these don't work I don't think */
     @import url('./reset.scss');
     @import url('./main.scss');
 
@@ -50,6 +51,17 @@
       height: 100%;
     }
   </style>
+
+  <script lang="ts">
+    // TODO: this does not work
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/service-worker.js", { scope: "/" })
+        .then(function () {
+          console.log("Service Worker Registered");
+        });
+    }
+  </script>
 </head>
 
 <body>

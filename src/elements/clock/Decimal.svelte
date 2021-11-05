@@ -25,7 +25,7 @@
 	};
 </script>
 
-<Panel>
+<Panel type="number">
 	{#key dec}
 		<div class="decimal" in:cycle>
 			{`.${dec}`}

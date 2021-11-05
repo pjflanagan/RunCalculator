@@ -1,34 +1,37 @@
 <script lang="ts">
 	import classNames from 'classnames';
 	import Panel from './Panel.svelte';
+
+	export let unit: string;
 	export let large: boolean = false;
 
-	const className = classNames('colon', { large });
+	const className = classNames('unit', { large });
 </script>
 
-<Panel type="colon">
-	<div class="colon-holder">
-		<div class={className}>:</div>
+<Panel type="unit">
+	<div class="unit-holder">
+		<div class={className}>{unit}</div>
 	</div>
 </Panel>
 
 <style lang="scss">
 	@import '../../main.scss';
 
-	.colon-holder {
+	.unit-holder {
 		height: 100%;
 		width: 100%;
 
-		.colon {
+		.unit {
 			position: relative;
 			top: 50%;
-			transform: translateY(-50%);
+			transform: translateY(8%);
+			font-size: 12px;
 			font-family: $bebasFontFamily;
-			color: #fffd;
-			font-size: 32px;
+			color: #fff8;
 
 			&.large {
-				font-size: 42px;
+				font-size: 18px;
+				transform: translateY(16%);
 			}
 		}
 	}

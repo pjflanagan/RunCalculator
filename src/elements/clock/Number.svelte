@@ -15,7 +15,7 @@
 	$: translateY = -10 * (9 - num);
 </script>
 
-<Panel {onClick}>
+<Panel {onClick} type="number">
 	<div class="number-column-holder">
 		<div class="number-column" style={`transform:translateY(${translateY}%)`}>
 			{#each NUMBERS as number}
