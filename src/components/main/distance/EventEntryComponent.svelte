@@ -56,7 +56,7 @@ make them slide into place when they change
 				font-size: 18px;
 			}
 			&.end {
-				color: #1c1c1c99;
+				color: $grey;
 				font-size: 14px;
 			}
 

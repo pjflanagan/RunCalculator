@@ -4,7 +4,7 @@
 	import { chevronUp, chevronDown } from 'svelte-awesome/icons';
 
 	export let direction: 'UP' | 'DOWN' | 'NONE' = 'NONE';
-	export let onClick: () => void = () => {};
+	export let onClick: null | (() => void) = null;
 
 	let interval;
 	let timeout;
@@ -14,7 +14,7 @@
 			interval = setInterval(() => {
 				onClick();
 			}, 80);
-		}, 1000);
+		}, 600);
 	};
 
 	const onMouseUp = () => {
@@ -23,7 +23,7 @@
 	};
 
 	const className = classNames('arrow-holder', {
-		arrow: direction !== 'NONE'
+		hoverable: !!onClick
 	});
 </script>
 
@@ -36,19 +36,46 @@
 	on:blur={onMouseUp}
 >
 	{#if direction === 'UP'}
-		<Icon data={chevronUp} />
+		<div class="icon up">
+			<Icon data={chevronUp} />
+		</div>
 	{:else if direction === 'DOWN'}
-		<Icon data={chevronDown} />
+		<div class="icon down">
+			<Icon data={chevronDown} />
+		</div>
 	{/if}
 </div>
 
 <style lang="scss">
+	@import '../../main.scss';
+
 	.arrow-holder {
 		width: 16.666%;
 		text-align: center;
+		color: $grey;
+		transition: color 0.2s;
 
-		&.arrow {
+		.icon {
+			height: 100%;
+			position: relative;
+			transition: transform 0.2s;
+		}
+
+		&.hoverable {
 			cursor: pointer;
+		}
+
+		&:hover {
+			color: $black;
+
+			.icon {
+				&.up {
+					transform: translateY(-4px);
+				}
+				&.down {
+					transform: translateY(4px);
+				}
+			}
 		}
 	}
 </style>

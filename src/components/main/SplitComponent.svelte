@@ -51,13 +51,23 @@
 				text-align: center;
 				cursor: pointer;
 				line-height: $splitPickerHeight;
-				font-size: 22px;
-				// font-size: 28px;
-				transition: color 0.2s;
+				transition: color 0.2s, font-size 0.2s;
+				color: $grey;
+				font-size: 18px;
+
+				&:hover {
+					color: $black;
+				}
 
 				&.selected {
-					color: #fff;
+					color: $white;
 					cursor: default;
+					font-size: 22px;
+					// font-size: 28px;
+
+					&:hover {
+						color: $white;
+					}
 				}
 			}
 		}
