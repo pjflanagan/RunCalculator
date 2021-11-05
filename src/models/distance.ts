@@ -105,6 +105,10 @@ export namespace Distance {
       distance: 800,
     },
     {
+      name: '1000',
+      distance: 1000,
+    },
+    {
       name: 'MILE',
       distance: convertMilesToMeters(1),
     },

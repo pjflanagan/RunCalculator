@@ -24,6 +24,10 @@
 		unit: 'm'
 	};
 
+	const toggleDistanceMode = () => {
+		distanceData.distanceMode = !distanceData.distanceMode;
+	};
+
 	const setRace = (event: Distance.Event) => {
 		distanceData.race = event;
 	};
@@ -40,6 +44,10 @@
 	let timeIn = 0;
 	let paceMode = false;
 
+	const togglePaceMode = () => {
+		paceMode = !paceMode;
+	};
+
 	const addTime = (deltaSeconds: number) => {
 		let newTime = timeIn + deltaSeconds;
 		if (newTime > MAX_TIME_IN) {
@@ -53,8 +61,8 @@
 	// split
 	let split = Distance.getEvent('MILE');
 
-	const selectSplit = (name: string) => {
-		split = Distance.getSplit(name as Distance.EventName);
+	const selectSplit = (newSplit: Distance.Event) => {
+		split = newSplit;
 	};
 
 	$: timeOut = Time.calcTime({
@@ -68,14 +76,9 @@
 <!-- HTML -->
 <Container>
 	<HeaderComponent />
-	<DistanceComponent
-		{...distanceData}
-		toggleDistanceMode={() => (distanceData.distanceMode = !distanceData.distanceMode)}
-		{toggleUnit}
-		{setRace}
-	/>
-	<TimeInputComponent {addTime} {timeIn} {paceMode} togglePaceMode={() => (paceMode = !paceMode)} />
-	<SplitComponent {split} {selectSplit} />
+	<DistanceComponent {...distanceData} {toggleDistanceMode} {toggleUnit} {setRace} />
+	<TimeInputComponent {addTime} {timeIn} {paceMode} {togglePaceMode} />
+	<SplitComponent selectedSplit={split} {selectSplit} />
 	<TimeOutputComponent {timeOut} />
 	<!-- {/* <AdComponent /> */} -->
 </Container>

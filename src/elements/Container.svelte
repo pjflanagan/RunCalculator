@@ -16,7 +16,7 @@
 			height: 100%;
 			width: 100%;
 			max-width: 580px;
-			max-height: 720px;
+			max-height: 760px;
 		}
 	}
 </style>

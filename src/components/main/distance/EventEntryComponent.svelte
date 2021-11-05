@@ -10,7 +10,7 @@
 <!-- 
 TODO: display 9 events, with 4 hidden
 make them slide into place when they change
-use an "backdrop-filter: invert(1);" box on top to flip text -->
+ -->
 
 <div class="event-picker">
 	<div class="event-holder end">
@@ -44,6 +44,7 @@ use an "backdrop-filter: invert(1);" box on top to flip text -->
 			width: 20%;
 			height: 100%;
 			cursor: pointer;
+			font-size: 22px;
 
 			&.selected {
 				background: $black;
@@ -52,9 +53,11 @@ use an "backdrop-filter: invert(1);" box on top to flip text -->
 			}
 			&.mid {
 				color: $black;
+				font-size: 18px;
 			}
 			&.end {
 				color: #1c1c1c99;
+				font-size: 14px;
 			}
 
 			.event {

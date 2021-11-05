@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { Row, RowDivider, RowLabel, RowWidgetHolder } from '../../elements/index';
 	import { Distance } from '../../models';
-	import Split from './split/Split.svelte';
 
-	export let split: Distance.Event;
-	export let selectSplit: (name: string) => void;
+	export let selectedSplit: Distance.Event;
+	export let selectSplit: (split: Distance.Event) => void;
 
-	$: splitBackerMarginLeft = Distance.getSplitIndex(split);
+	$: splitBackerMarginLeft = Distance.getSplitIndex(selectedSplit);
 </script>
 
 <Row>
@@ -15,9 +14,17 @@
 	<RowWidgetHolder>
 		<div class="split-picker">
 			{#each Distance.SPLITS as splitOption}
-				<Split {split} {selectSplit} splitName={splitOption.name} />
+				<div class="split-holder">
+					<div
+						class="split"
+						class:selected={selectedSplit.name === splitOption.name}
+						on:click={() => selectSplit(splitOption)}
+					>
+						{splitOption.name}
+					</div>
+				</div>
 			{/each}
-			<div class="split-backer" style={`left: ${25 * splitBackerMarginLeft}%`} />
+			<div class="split-backer" style={`left: ${20 * splitBackerMarginLeft}%`} />
 		</div>
 	</RowWidgetHolder>
 </Row>
@@ -25,17 +32,40 @@
 <style lang="scss">
 	@import '../../main.scss';
 
+	$splitPickerHeight: 42px;
+
 	.split-picker {
 		position: relative;
 		display: flex;
 		top: 50%;
 		transform: translateY(-50%);
-		height: 42px;
+		height: $splitPickerHeight;
+
+		.split-holder {
+			width: 20%;
+			margin: 0;
+			z-index: 2;
+			position: relative;
+
+			.split {
+				text-align: center;
+				cursor: pointer;
+				line-height: $splitPickerHeight;
+				font-size: 22px;
+				// font-size: 28px;
+				transition: color 0.2s;
+
+				&.selected {
+					color: #fff;
+					cursor: default;
+				}
+			}
+		}
 
 		.split-backer {
 			position: fixed;
-			height: 42px;
-			width: 25%;
+			height: 100%;
+			width: 20%;
 			top: 50%;
 			transform: translateY(-50%);
 			background: $black;
