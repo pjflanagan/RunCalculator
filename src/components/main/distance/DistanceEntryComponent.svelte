@@ -6,6 +6,8 @@
 
 	export let toggleUnit: () => void;
 
+	// TODO: autofocus on input
+
 	$: displayUnit = unit === 'm' ? 'MILES' : 'KILOMETERS';
 </script>
 
@@ -32,11 +34,22 @@
 
 		.input-holder {
 			width: 74%;
+			padding: 0 12px;
+			border-bottom: 4px solid #1c1c1c;
 
 			input {
 				height: 100%;
 				width: 100%;
 				text-align: right;
+				padding: 0;
+				margin: 0;
+				border: 0;
+				font-size: 32px;
+				outline: none;
+
+				&:focus {
+					outline: none;
+				}
 			}
 		}
 

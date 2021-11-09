@@ -19,7 +19,7 @@
 	{#key event}
 		<div
 			class="event-name"
-			out:slide={{ transitionDirection: 'out' }}
+			out:slide|local={{ transitionDirection: 'out' }}
 			in:slide={{ transitionDirection: 'in' }}
 		>
 			{event.name}
