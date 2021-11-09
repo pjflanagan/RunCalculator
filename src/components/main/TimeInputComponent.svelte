@@ -16,15 +16,25 @@
 
 	export let timeIn: number;
 	export let paceMode: boolean;
-	export let togglePaceMode: () => void;
-	export let addTime: (seconds: number) => void;
+
+	const MAX_TIME_IN = 9 * 60 * 60 + 59 * 60 + 59;
+
+	const addTime = (deltaSeconds: number) => {
+		let newTime = timeIn + deltaSeconds;
+		if (newTime > MAX_TIME_IN) {
+			return;
+		} else if (newTime < 0) {
+			return;
+		}
+		timeIn = newTime;
+	};
 
 	$: [h1, m10, m1, s10, s1] = Time.makeDisplayTime(timeIn);
 	$: labelDisplay = paceMode ? 'PACE' : 'TIME';
 </script>
 
 <Row>
-	<RowLabel onClick={togglePaceMode}>{labelDisplay}</RowLabel>
+	<RowLabel onClick={() => (paceMode = !paceMode)}>{labelDisplay}</RowLabel>
 	<RowDivider />
 	<RowWidgetHolder>
 		<div class="arrows-holder">

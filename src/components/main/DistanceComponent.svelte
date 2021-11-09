@@ -10,23 +10,19 @@
 	export let distanceMode: boolean;
 	export let unit: Distance.Unit;
 
-	export let toggleDistanceMode: () => void;
-	export let toggleUnit: () => void;
-	export let setRace: (event: Distance.Event) => void;
-
 	$: labelDisplay = distanceMode ? 'DISTANCE' : 'EVENT';
 </script>
 
 <Row>
-	<RowLabel onClick={toggleDistanceMode}>
+	<RowLabel onClick={() => (distanceMode = !distanceMode)}>
 		{labelDisplay}
 	</RowLabel>
 	<RowDivider />
 	<RowWidgetHolder>
 		{#if distanceMode}
-			<DistanceEntryComponent {distance} {unit} {toggleUnit} />
+			<DistanceEntryComponent bind:unit bind:distance />
 		{:else}
-			<EventEntryComponent {setRace} {race} />
+			<EventEntryComponent bind:race />
 		{/if}
 	</RowWidgetHolder>
 </Row>

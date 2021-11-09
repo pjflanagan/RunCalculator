@@ -4,9 +4,15 @@
 	export let distance: number;
 	export let unit: Distance.Unit;
 
-	export let toggleUnit: () => void;
-
 	// TODO: autofocus on input
+
+	const toggleUnit = () => {
+		unit =
+			{
+				m: 'k' as Distance.Unit,
+				k: 'm' as Distance.Unit
+			}[unit] || 'm';
+	};
 
 	$: displayUnit = unit === 'm' ? 'MILES' : 'KILOMETERS';
 </script>

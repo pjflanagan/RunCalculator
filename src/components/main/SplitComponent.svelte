@@ -2,10 +2,9 @@
 	import { Row, RowDivider, RowLabel, RowWidgetHolder } from '../../elements/index';
 	import { Distance } from '../../models';
 
-	export let selectedSplit: Distance.Event;
-	export let selectSplit: (split: Distance.Event) => void;
+	export let split: Distance.Event;
 
-	$: splitBackerMarginLeft = Distance.getSplitIndex(selectedSplit);
+	$: splitBackerMarginLeft = Distance.getSplitIndex(split);
 </script>
 
 <Row>
@@ -17,8 +16,8 @@
 				<div class="split-holder">
 					<div
 						class="split"
-						class:selected={selectedSplit.name === splitOption.name}
-						on:click={() => selectSplit(splitOption)}
+						class:selected={split.name === splitOption.name}
+						on:click={() => (split = splitOption)}
 					>
 						{splitOption.name}
 					</div>

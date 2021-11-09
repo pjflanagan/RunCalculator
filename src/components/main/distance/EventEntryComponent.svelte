@@ -3,12 +3,11 @@
 	import Event from './Event.svelte';
 
 	export let race: Distance.Event;
-	export let setRace: (event: Distance.Event) => void;
 
 	let amimationDirection: 'left' | 'right' = 'left';
 	const onClick = (event: Distance.Event, side: 'left' | 'right') => {
 		amimationDirection = side;
-		setRace(event);
+		race = event;
 	};
 
 	$: [e0, e1, e2, e3, e4, e5, e6] = Distance.makeDisplayEvents(race);
