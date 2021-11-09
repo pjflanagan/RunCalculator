@@ -5,14 +5,14 @@
 	export let num: number;
 	export let large: boolean = false;
 	export let onClick: () => void = null;
+	export let error: boolean = false;
 
 	const NUMBERS = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
-
-	const className = classNames('number', { large });
 
 	let translateY: number = 0;
 
 	$: translateY = -10 * (9 - num);
+	$: className = classNames('number', { large, error });
 </script>
 
 <Panel {onClick} type="number">
@@ -21,7 +21,11 @@
 			{#each NUMBERS as number}
 				<div class="number-holder">
 					<div class={className}>
-						{number}
+						{#if error}
+							X
+						{:else}
+							{number}
+						{/if}
 					</div>
 				</div>
 			{/each}
@@ -56,6 +60,10 @@
 
 					&.large {
 						font-size: 70px;
+					}
+
+					&.error {
+						color: #f00;
 					}
 				}
 			}

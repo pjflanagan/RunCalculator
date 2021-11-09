@@ -13,8 +13,8 @@ export namespace Distance {
   export type Unit = 'm' | 'k';
 
   export type EventName = ''
-    | '200' | '400' | '1000'
-    | '800' | '1200' | '1600'
+    | '200' | '400' | '800'
+    | '1K' | '1200' | '1600'
     | 'MILE' | '3K' | '2MI'
     | '3MI' | '5K' | '6K'
     | '8K' | '5MI' | '10K'
@@ -107,7 +107,7 @@ export namespace Distance {
       distance: 800,
     },
     {
-      name: '1000',
+      name: '1K',
       distance: 1000,
     },
     {

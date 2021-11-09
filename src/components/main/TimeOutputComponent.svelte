@@ -2,29 +2,28 @@
 	import { Row, Clock, Colon, Number, Decimal, Unit } from '../../elements';
 	import { Time } from '../../models';
 
-	// TODO: const MAX_TIME_OUT = 9 * 60 * 60 + 59 * 60 + 59;
-
 	export let timeOut: number;
 
-	$: [h1, m10, m1, s10, s1, d] = Time.makeDisplayTime(timeOut);
-
 	const large = true;
+
+	$: [h1, m10, m1, s10, s1, d] = Time.makeDisplayTime(timeOut);
+	$: error = h1 >= 10;
 </script>
 
 <Row height={24}>
 	<Clock>
-		{#if h1 !== 0}
-			<Number num={h1} {large} />
+		{#if h1 > 0 && !error}
+			<Number num={h1} {large} {error} />
 			<Unit unit="h" {large} />
 			<Colon {large} />
 		{/if}
-		<Number num={m10} {large} />
-		<Number num={m1} {large} />
+		<Number num={m10} {large} {error} />
+		<Number num={m1} {large} {error} />
 		<Unit unit="m" {large} />
 		<Colon {large} />
-		<Number num={s10} {large} />
-		<Number num={s1} {large} />
+		<Number num={s10} {large} {error} />
+		<Number num={s1} {large} {error} />
 		<Unit unit="s" {large} />
-		<Decimal dec={d} />
+		<Decimal dec={d} {error} />
 	</Clock>
 </Row>

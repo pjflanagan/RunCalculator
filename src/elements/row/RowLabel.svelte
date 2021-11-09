@@ -1,9 +1,15 @@
 <script lang="ts">
+	import classNames from 'classnames';
+
 	export let onClick: () => void = null;
+
+	const className = classNames('label', {
+		hoverable: !!onClick
+	});
 </script>
 
 <div class="label-holder">
-	<div class="label" on:click={onClick}>
+	<div class={className} on:click={onClick}>
 		<slot />
 	</div>
 </div>
@@ -20,6 +26,14 @@
 			transform: translateY(-50%);
 			font-size: 32px;
 			line-height: 60px;
+
+			&.hoverable {
+				cursor: pointer;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 </style>

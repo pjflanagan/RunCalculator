@@ -29,7 +29,16 @@
 			position: relative;
 			width: 0;
 			overflow: visible;
-			transform: translateX(-15px);
+			transform: translateX(-6px);
+			pointer-events: none;
+		}
+	}
+
+	@media (min-width: 580px) {
+		.panel {
+			&.unit {
+				transform: translateX(-15px);
+			}
 		}
 	}
 </style>

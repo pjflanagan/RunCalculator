@@ -1,8 +1,10 @@
 <script lang="ts">
+	import classNames from 'classnames';
 	import { Time } from '../../models';
 	import Panel from './Panel.svelte';
 
 	export let dec: string;
+	export let error: boolean = false;
 
 	const cycle = (node: Node, {}) => {
 		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
@@ -23,12 +25,18 @@
 			}
 		};
 	};
+
+	$: className = classNames('decimal', { error });
 </script>
 
 <Panel type="number">
 	{#key dec}
-		<div class="decimal" in:cycle>
-			{`.${dec}`}
+		<div class={className} in:cycle>
+			{#if error}
+				XXX
+			{:else}
+				{`.${dec}`}
+			{/if}
 		</div>
 	{/key}
 </Panel>
@@ -39,5 +47,9 @@
 		top: 50%;
 		transform: translateY(-100%);
 		font-size: 26px;
+
+		&.error {
+			color: #f00;
+		}
 	}
 </style>

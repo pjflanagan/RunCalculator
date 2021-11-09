@@ -1,4 +1,4 @@
-$black: #1C1C1C;
+$black: #1c1c1c;
 $grey: #1c1c1c99;
 $white: #fff;
 
@@ -22,6 +22,7 @@ $digitalFontFamily: 'digital';
   width: 100%;
   height: 100%;
   user-select: none;
+  color: $black;
 }
 
 :global(::selection) {

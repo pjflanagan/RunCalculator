@@ -57,12 +57,12 @@ export namespace Time {
   }
 
   export const makeDisplayTime = (time: number): DisplayTime => {
-    let h1 = Math.floor(time / 60 / 60);
-    let m10 = Math.floor(time / 60 % 60 / 10);
-    let m1 = Math.floor(time / 60 % 60 % 10);
-    let s10 = Math.floor(time % 60 / 10);
-    let s1 = Math.floor(time % 60 % 10);
-    let d = makeDecimalString(time % 60 % 10 % 1);
+    const h1 = Math.floor(time / 60 / 60);
+    const m10 = Math.floor(time / 60 % 60 / 10);
+    const m1 = Math.floor(time / 60 % 60 % 10);
+    const s10 = Math.floor(time % 60 / 10);
+    const s1 = Math.floor(time % 60 % 10);
+    const d = makeDecimalString(time % 60 % 10 % 1);
     return [h1, m10, m1, s10, s1, d];
   }
 
