@@ -1,52 +1,46 @@
 <script lang="ts">
-	import type { Distance } from '../../../models';
+	import { Distance } from '../../../models';
 
 	export let event: Distance.Event;
-	export let onClick: null | (() => void) = null;
-	export let amimationDirection: 'left' | 'right' = 'left';
 
-	const slide = (_node: Node, { transitionDirection }: { transitionDirection: 'in' | 'out' }) => {
-		let dir = amimationDirection === 'left' ? 1 : -1;
-		dir *= transitionDirection === 'in' ? 1 : -1;
-		return {
-			duration: 240,
-			css: (t: number) => `transform: translateX(${(-150 + t * 150) * dir}%)`
-		};
-	};
+	const EVENT_COUNT = Distance.EVENTS.length;
+
+	$: offset = Distance.getEventIndex(event);
 </script>
 
-<div class="event" on:click={onClick}>
-	{#key event}
-		<div
-			class="event-name"
-			out:slide|local={{ transitionDirection: 'out' }}
-			in:slide={{ transitionDirection: 'in' }}
-		>
-			{event.name}
+<div
+	class="events-holder"
+	style={`
+    width: ${100 * EVENT_COUNT}%;
+    transform: translateX(${(-100 * offset) / EVENT_COUNT}%);
+  `}
+>
+	{#each Distance.EVENTS as displayEvent}
+		<div class="event">
+			<div class="event-name">
+				{displayEvent.name}
+			</div>
 		</div>
-	{/key}
+	{/each}
 </div>
 
 <style lang="scss">
 	@import '../../../main.scss';
 
-	.event {
-		position: relative;
-		margin: 0 auto;
+	.events-holder {
 		height: 100%;
-		width: 80%;
-		overflow: hidden;
-		top: 50%;
-		transform: translateY(-50%);
 		text-align: center;
+		display: flex;
+		transition: transform 0.2s;
 
-		.event-name {
-			position: absolute;
-			height: 24px;
-			width: 80px;
-			left: 50%;
-			top: 50%;
-			margin: -12px 0 0 -40px;
+		.event {
+			width: 100%;
+
+			.event-name {
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+			}
 		}
 	}
 </style>

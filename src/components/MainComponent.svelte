@@ -8,6 +8,10 @@
 	import SplitComponent from './main/SplitComponent.svelte';
 	import TimeOutputComponent from './main/TimeOutputComponent.svelte';
 
+	// if (process.browser) {
+	//   const myCookieValue = getCookie("myCookie");
+	// }
+
 	// distance
 	let race: Distance.Event = Distance.getEvent('5K');
 	let distanceMode: boolean = false;

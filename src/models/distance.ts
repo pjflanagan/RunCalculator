@@ -1,148 +1,158 @@
 import { Loop } from './util';
 
 export namespace Distance {
-	const K = 1000;
+  const K = 1000;
 
-	export const convertMilesToMeters = (miles: number): number => {
-		return miles * 1609.344;
-	};
+  export const convertMilesToMeters = (miles: number): number => {
+    return miles * 1609.344;
+  };
 
-	// k is kilometers (in name alone, it is actually represented by meters)
-	// m is miles
-	export type Unit = 'm' | 'k';
+  // k is kilometers (in name alone, it is actually represented by meters)
+  // m is miles
+  export type Unit = 'm' | 'k';
 
-	export type EventName =
-		| ''
-		| '200'
-		| '400'
-		| '800'
-		| '1K'
-		| '1200'
-		| '1600'
-		| 'MILE'
-		| '3K'
-		| '2MI'
-		| '3MI'
-		| '5K'
-		| '6K'
-		| '8K'
-		| '5MI'
-		| '10K'
-		| '10MI'
-		| 'HALF'
-		| 'MARA';
+  export enum EventName {
+    NONE = '',
+    M200 = '200',
+    M400 = '400',
+    M800 = '800',
+    K1 = '1K',
+    M1200 = '1200',
+    M1500 = '1500',
+    M1600 = '1600',
+    MILE = 'MILE',
+    K3 = '3K',
+    MI2 = '2MI',
+    MI3 = '3MI',
+    K5 = '5K',
+    K6 = '6K',
+    K8 = '8K',
+    MI5 = '5MI',
+    K10 = '10K',
+    MI10 = '10MI',
+    HALF = 'HALF',
+    MARATHON = 'MARATHON'
+  };
 
-	export type Event = {
-		name: EventName;
-		distance: number;
-	};
+  export type Event = {
+    name: EventName;
+    distance: number;
+  };
 
-	const noDistanceEvent: Event = {
-		name: '',
-		distance: 0
-	};
+  const noDistanceEvent: Event = {
+    name: EventName.NONE,
+    distance: 0
+  };
 
-	export const EVENTS: Event[] = [
-		{
-			name: '800',
-			distance: 800
-		},
-		{
-			name: '1200',
-			distance: 1200
-		},
-		{
-			name: '1600',
-			distance: 1600
-		},
-		{
-			name: 'MILE',
-			distance: convertMilesToMeters(1)
-		},
-		{
-			name: '3K',
-			distance: 3 * K
-		},
-		{
-			name: '2MI',
-			distance: convertMilesToMeters(2)
-		},
-		{
-			name: '3MI',
-			distance: convertMilesToMeters(3)
-		},
-		{
-			name: '5K',
-			distance: 5 * K
-		},
-		{
-			name: '6K',
-			distance: 6 * K
-		},
-		{
-			name: '8K',
-			distance: 8 * K
-		},
-		{
-			name: '5MI',
-			distance: convertMilesToMeters(5)
-		},
-		{
-			name: '10K',
-			distance: 10 * K
-		},
-		{
-			name: '10MI',
-			distance: convertMilesToMeters(10)
-		},
-		{
-			name: 'HALF',
-			distance: convertMilesToMeters(13.1)
-		},
-		{
-			name: 'MARA',
-			distance: convertMilesToMeters(26.2)
-		}
-	];
+  export const EVENTS: Event[] = [
+    {
+      name: EventName.M800,
+      distance: 800
+    },
+    {
+      name: EventName.M1200,
+      distance: 1200
+    },
+    {
+      name: EventName.M1500,
+      distance: 1500
+    },
+    {
+      name: EventName.M1600,
+      distance: 1600
+    },
+    {
+      name: EventName.MILE,
+      distance: convertMilesToMeters(1)
+    },
+    {
+      name: EventName.K3,
+      distance: 3 * K
+    },
+    {
+      name: EventName.MI2,
+      distance: convertMilesToMeters(2)
+    },
+    {
+      name: EventName.MI3,
+      distance: convertMilesToMeters(3)
+    },
+    {
+      name: EventName.K5,
+      distance: 5 * K
+    },
+    {
+      name: EventName.K6,
+      distance: 6 * K
+    },
+    {
+      name: EventName.K8,
+      distance: 8 * K
+    },
+    {
+      name: EventName.MI5,
+      distance: convertMilesToMeters(5)
+    },
+    {
+      name: EventName.K10,
+      distance: 10 * K
+    },
+    {
+      name: EventName.MI10,
+      distance: convertMilesToMeters(10)
+    },
+    {
+      name: EventName.HALF,
+      distance: convertMilesToMeters(13.1)
+    },
+    {
+      name: EventName.MARATHON,
+      distance: convertMilesToMeters(26.2)
+    }
+  ];
 
-	export const SPLITS: Event[] = [
-		{
-			name: '200',
-			distance: 200
-		},
-		{
-			name: '400',
-			distance: 400
-		},
-		{
-			name: '800',
-			distance: 800
-		},
-		{
-			name: '1K',
-			distance: 1000
-		},
-		{
-			name: 'MILE',
-			distance: convertMilesToMeters(1)
-		}
-	];
+  export const SPLITS: Event[] = [
+    {
+      name: EventName.M200,
+      distance: 200
+    },
+    {
+      name: EventName.M400,
+      distance: 400
+    },
+    {
+      name: EventName.M800,
+      distance: 800
+    },
+    {
+      name: EventName.K1,
+      distance: 1000
+    },
+    {
+      name: EventName.MILE,
+      distance: convertMilesToMeters(1)
+    }
+  ];
 
-	const get = (name: EventName, list: Event[]): Event => {
-		return list.find((e) => e.name === name) || noDistanceEvent;
-	};
+  const get = (name: EventName, list: Event[]): Event => {
+    return list.find((e) => e.name === name) || noDistanceEvent;
+  };
 
-	export const getEvent = (name: EventName): Event => get(name, EVENTS);
-	export const getSplit = (name: EventName): Event => get(name, SPLITS);
+  export const getEvent = (name: EventName): Event => get(name, EVENTS);
+  export const getSplit = (name: EventName): Event => get(name, SPLITS);
 
-	export const getSplitIndex = (event: Event): number => {
-		return SPLITS.findIndex((split) => event.name === split.name);
-	};
+  export const getSplitIndex = (event: Event): number => {
+    return SPLITS.findIndex((split) => event.name === split.name);
+  };
 
-	export const makeDisplayEvents = (event: Event) =>
-		Loop.getCenteredArray(
-			EVENTS,
-			EVENTS.findIndex((e) => e.name === event.name),
-			7
-		);
+  export const getEventIndex = (event: Event): number => {
+    return EVENTS.findIndex((split) => event.name === split.name);
+  };
+
+  export const makeDisplayEvents = (event: Event) =>
+    Loop.getCenteredArray(
+      EVENTS,
+      EVENTS.findIndex((e) => e.name === event.name),
+      7
+    );
 }

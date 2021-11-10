@@ -1,12 +1,14 @@
 
+0. Immediately
+- animation errors
+- distance error with decimals
+
 1: SCSS and final components
 - [ ] layout 
   - organize scss into variables
-  - make the reset and import work (maybe move reset into the Container?)
+  - use reset.scss (?)
+  - best place for main.scss
   - device size changes
-- [ ] use more shades of grey for the things that are not highlighted
-  - all the splits
-  - the arrows until you hover on them
 - [ ] distance entry component
   - autoselect the text
 
