@@ -6,8 +6,8 @@
 	export let direction: 'UP' | 'DOWN' | 'NONE' = 'NONE';
 	export let onClick: null | (() => void) = null;
 
-	let interval;
-	let timeout;
+	let interval: NodeJS.Timeout;
+	let timeout: NodeJS.Timeout;
 
 	const onMouseDown = () => {
 		timeout = setTimeout(() => {

@@ -35,6 +35,7 @@
 			{#if error}
 				XXX
 			{:else}
+				<!-- TODO: there is an error here -->
 				{`.${dec}`}
 			{/if}
 		</div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Row, RowWidgetHolder } from '../../elements/index';
+	import { Row } from '../../elements/index';
 </script>
 
 <Row height={16}>

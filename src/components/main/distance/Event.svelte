@@ -5,7 +5,7 @@
 	export let onClick: null | (() => void) = null;
 	export let amimationDirection: 'left' | 'right' = 'left';
 
-	const slide = (node: Node, { transitionDirection }: { transitionDirection: 'in' | 'out' }) => {
+	const slide = (_node: Node, { transitionDirection }: { transitionDirection: 'in' | 'out' }) => {
 		let dir = amimationDirection === 'left' ? 1 : -1;
 		dir *= transitionDirection === 'in' ? 1 : -1;
 		return {

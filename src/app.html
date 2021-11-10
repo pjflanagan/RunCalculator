@@ -1,73 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/img/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		%svelte.head%
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/img/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  %svelte.head%
+		<title>Run Calculator</title>
 
-  <title>Run Calculator</title>
+		<!-- SEO -->
+		<meta
+			name="description"
+			content="A running pace calculator designed for runners who want to know their splits for events from the 800 up through the marathon. Just enter in the event you are running, the time you want, and the split you want to see, and the calculator will display your pace."
+		/>
+		<meta
+			name="keywords"
+			content="Pace, Calculator, PR, Time, Run, Runners, Running, Split, Calc, 5K, 10K, Mile, Half Mile, 800, 1200, 3K, 2 Mile, Two Mile, Race, Event, Track, XC, Cross Country, Track,Track and Field, Race, Half Marathon, Marathon, Half, 8K, Split, Event, Racing"
+		/>
+		<meta name="author" content="pjflanagan.me" />
 
-  <!-- SEO -->
-  <meta name="description"
-    content="A running pace calculator designed for runners who want to know their splits for events from the 800 up through the marathon. Just enter in the event you are running, the time you want, and the split you want to see, and the calculator will display your pace.">
-  <meta name="keywords"
-    content="Pace, Calculator, PR, Time, Run, Runners, Running, Split, Calc, 5K, 10K, Mile, Half Mile, 800, 1200, 3K, 2 Mile, Two Mile, Race, Event, Track, XC, Cross Country, Track,Track and Field, Race, Half Marathon, Marathon, Half, 8K, Split, Event, Racing">
-  <meta name="author" content="pjflanagan.me">
+		<!-- IOS -->
+		<link rel="apple-touch-icon" sizes="57x57" href="/img/icon-57.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/img/icon-72.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/img/icon-114.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/img/icon-144.png" />
 
-  <!-- IOS -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/img/icon-57.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="/img/icon-72.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="/img/icon-114.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="/img/icon-144.png" />
+		<!-- FACEBOOK -->
+		<meta property="og:image" content="/img/social.png" />
+		<meta property="og:image:secure_url" content="/img/social.png" />
+		<meta property="og:url" content="http://runcalculator.net" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Run Calculator" />
+		<meta
+			property="og:description"
+			content="A simple running pace calculator for mobile and desktop."
+		/>
 
-  <!-- FACEBOOK -->
-  <meta property="og:image" content="/img/social.png" />
-  <meta property="og:image:secure_url" content="/img/social.png" />
-  <meta property="og:url" content="http://runcalculator.net" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Run Calculator" />
-  <meta property="og:description" content="A simple running pace calculator for mobile and desktop." />
+		<!-- TWITTER -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@runcalc" />
+		<meta name="twitter:title" content="Run Calculator" />
+		<meta
+			name="twitter:description"
+			content="A simple calculator for runners on desktop and mobile. Calculate your pace or time for any event between the 800 and marathons."
+		/>
+		<meta name="twitter:image" content="/img/social-tw.png" />
 
-  <!-- TWITTER -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@runcalc" />
-  <meta name="twitter:title" content="Run Calculator" />
-  <meta name="twitter:description"
-    content="A simple calculator for runners on desktop and mobile. Calculate your pace or time for any event between the 800 and marathons." />
-  <meta name="twitter:image" content="/img/social-tw.png" />
+		<!-- STYLE -->
+		<style lang="scss">
+			/* TODO: TODO: TODO: these don't work I don't think */
+			@import url('./reset.scss');
+			@import url('./main.scss');
 
-  <!-- STYLE -->
-  <style lang="scss">
-    /* TODO: TODO: TODO: these don't work I don't think */
-    @import url('./reset.scss');
-    @import url('./main.scss');
+			#svelte {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
 
-    #svelte {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+		<script lang="ts">
+			// TODO: this does not work
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('/service-worker.js', { scope: '/' }).then(function () {
+					console.log('Service Worker Registered');
+				});
+			}
+		</script>
+	</head>
 
-  <script lang="ts">
-    // TODO: this does not work
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/service-worker.js", { scope: "/" })
-        .then(function () {
-          console.log("Service Worker Registered");
-        });
-    }
-  </script>
-</head>
-
-<body>
-  <div id="svelte">
-    %svelte.body%
-  </div>
-</body>
-
+	<body>
+		<div id="svelte">%svelte.body%</div>
+	</body>
 </html>

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Icon from 'svelte-awesome';
-	import { chevronUp, chevronDown } from 'svelte-awesome/icons';
 	import {
 		Row,
 		RowDivider,

@@ -6,27 +6,27 @@ $bebasFontFamily: 'bebas';
 $digitalFontFamily: 'digital';
 
 @font-face {
-  font-family: $digitalFontFamily;
-  src: url(/font/MONOFONT.TTF);
+	font-family: $digitalFontFamily;
+	src: url(/font/MONOFONT.TTF);
 }
 
 @font-face {
-  font-family: $bebasFontFamily;
-  src: url(/font/BebasNeue.otf);
+	font-family: $bebasFontFamily;
+	src: url(/font/BebasNeue.otf);
 }
 
 :global(html),
 :global(body) {
-  font-family: $bebasFontFamily;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  user-select: none;
-  color: $black;
+	font-family: $bebasFontFamily;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	user-select: none;
+	color: $black;
 }
 
 :global(::selection) {
-  color: #FFF;
-  background: $black;
-  opacity: 1;
+	color: #fff;
+	background: $black;
+	opacity: 1;
 }

@@ -4,18 +4,18 @@
 export type { };
 declare const self: ServiceWorkerGlobalScope;
 
-const cacheName = "::yourserviceworker";
-const version = "v0.0.1";
+const cacheName = '::yourserviceworker';
+const version = 'v0.0.1';
 
-self.addEventListener("install", function (event) {
+self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(version + cacheName).then(function (cache) {
-      return cache.addAll(["/"]);
+      return cache.addAll(['/']);
     })
   );
 });
 
-self.addEventListener("activate", function (event) {
+self.addEventListener('activate', function (event) {
   event.waitUntil(
     caches.keys().then(function (keys) {
       // Remove caches whose name is no longer valid
@@ -32,14 +32,14 @@ self.addEventListener("activate", function (event) {
   );
 });
 
-self.addEventListener("fetch", function (event) {
+self.addEventListener('fetch', function (event) {
   const request = event.request;
 
   // Always fetch non-GET requests from the network
-  if (request.method !== "GET") {
+  if (request.method !== 'GET') {
     event.respondWith(
       fetch(request).catch(function () {
-        return caches.match("/offline");
+        return caches.match('/offline');
       }) as Promise<Response>
     );
     return;
@@ -48,7 +48,7 @@ self.addEventListener("fetch", function (event) {
   // For HTML requests, try the network first, fall back to the cache,
   // finally the offline page
   if (
-    request.headers.get("Accept")?.indexOf("text/html") !== -1 &&
+    request.headers.get('Accept')?.indexOf('text/html') !== -1 &&
     request.url.startsWith(this.origin)
   ) {
     // The request is text/html, so respond by caching the
@@ -63,10 +63,10 @@ self.addEventListener("fetch", function (event) {
           });
           return response;
         })
-        .catch(function () {
+        .catch(async function () {
           return caches.match(request).then(function (response) {
             // return the cache response or the /offline page.
-            return response || caches.match("/offline");
+            return response || caches.match('/offline');
           });
         }) as Promise<Response>
     );
@@ -75,7 +75,7 @@ self.addEventListener("fetch", function (event) {
 
   // For non-HTML requests, look in the cache first, fall back to the network
   if (
-    request.headers.get("Accept")?.indexOf("text/plain") === -1 &&
+    request.headers.get('Accept')?.indexOf('text/plain') === -1 &&
     request.url.startsWith(this.origin)
   ) {
     event.respondWith(
@@ -86,9 +86,7 @@ self.addEventListener("fetch", function (event) {
             .then(function (response) {
               const copy = response.clone();
 
-              if (
-                copy.headers.get("Content-Type")?.indexOf("text/plain") === -1
-              ) {
+              if (copy.headers.get('Content-Type')?.indexOf('text/plain') === -1) {
                 caches.open(version + cacheName).then(function (cache) {
                   cache.put(request, copy);
                 });
@@ -98,7 +96,7 @@ self.addEventListener("fetch", function (event) {
             })
             .catch(function () {
               // you can return an image placeholder here with
-              if (request.headers.get("Accept")?.indexOf("image") !== -1) {
+              if (request.headers.get('Accept')?.indexOf('image') !== -1) {
               }
             })
         );
