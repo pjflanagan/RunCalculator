@@ -2,14 +2,25 @@ import { Loop } from './util';
 
 export namespace Distance {
   const K = 1000;
+  const MILES_TO_METERS_RATIO = 1609.344;
 
-  export const getDistanceInMeters = (unit: Unit, distance: number) => {
+  // convert to meters
+  const convertMilesToMeters = (distanceInMiles: number): number => {
+    return distanceInMiles * MILES_TO_METERS_RATIO;
+  };
+
+  export const convertUnitToMeters = (distance: number, unit: Unit) => {
     return unit === 'k' ? distance * 1000 : convertMilesToMeters(distance);
   }
 
-  export const convertMilesToMeters = (miles: number): number => {
-    return miles * 1609.344;
-  };
+  // convert to given unit
+  const convertMetersToMiles = (distanceInMeters: number): number => {
+    return distanceInMeters / MILES_TO_METERS_RATIO;
+  }
+
+  export const convertMetersToUnit = (distanceInMeters: number, unit: Unit) => {
+    return unit === 'k' ? distanceInMeters / 1000 : convertMetersToMiles(distanceInMeters);
+  }
 
   // k is kilometers (in name alone, it is actually represented by meters)
   // m is miles

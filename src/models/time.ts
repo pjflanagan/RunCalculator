@@ -28,7 +28,7 @@ export namespace Time {
     let factor = 0;
     if (distanceMode) {
       // distance mode
-      const distanceMeters = Distance.getDistanceInMeters(unit, distanceIn);
+      const distanceMeters = Distance.convertUnitToMeters(distanceIn, unit);
       // error check
       if (distanceMeters < splitDistance) {
         return [0, Error.DISTANCE_SHORTER_THAN_SPLIT];

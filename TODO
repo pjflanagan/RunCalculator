@@ -1,12 +1,8 @@
 
-0. Immediately
-- distance error with decimals
-
 1: SCSS and final components
 - [ ] layout 
   - organize scss into variables
-  - use reset.scss (?)
-  - best place for main.scss
+  - best place for main.scss?
   - device size changes
 - [ ] distance entry component
   - autoselect the text

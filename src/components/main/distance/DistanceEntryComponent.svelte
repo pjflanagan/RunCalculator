@@ -1,10 +1,15 @@
 <script lang="ts">
-	import type { Distance } from '../../../models';
+	import { onMount } from 'svelte';
+	import { Distance } from '../../../models';
 
 	export let distance: number;
 	export let unit: Distance.Unit;
+	export let race: Distance.Event;
 
-	// TODO: autofocus on input
+	onMount(async () => {
+		distance = Math.round(Distance.convertMetersToUnit(race.distance, unit) * 100) / 100;
+		document.getElementById('distance-input')?.focus();
+	});
 
 	const toggleUnit = () => {
 		unit =
@@ -19,7 +24,7 @@
 
 <div class="distance-entry-component">
 	<div class="input-holder">
-		<input type="number" bind:value={distance} />
+		<input id="distance-input" type="number" bind:value={distance} />
 	</div>
 	<div class="unit-holder">
 		<div class="unit" on:click={toggleUnit}>{displayUnit}</div>
@@ -44,6 +49,7 @@
 			border-bottom: 4px solid #1c1c1c;
 
 			input {
+				font-family: $digitalFontFamily;
 				height: 100%;
 				width: 100%;
 				text-align: right;
@@ -66,6 +72,7 @@
 			text-align: center;
 			line-height: $distanceEntryHeight;
 			font-size: 22px;
+			cursor: pointer;
 		}
 	}
 </style>

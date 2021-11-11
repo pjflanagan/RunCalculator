@@ -20,7 +20,7 @@
 	<RowDivider />
 	<RowWidgetHolder>
 		{#if distanceMode}
-			<DistanceEntryComponent bind:unit bind:distance />
+			<DistanceEntryComponent bind:unit bind:distance {race} />
 		{:else}
 			<EventEntryComponent bind:race />
 		{/if}
