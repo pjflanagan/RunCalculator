@@ -1,73 +1,86 @@
 import { Distance } from './distance';
+import { Error } from './error';
 
 export namespace Time {
-	type calcTimeArgs = {
-		timeIn: number;
-		race: Distance.Event;
-		distance: number;
-		distanceMode: boolean;
-		split: Distance.Event;
-		paceMode: boolean;
-		unit: Distance.Unit;
-	};
+  type calcTimeArgs = {
+    timeIn: number;
+    race: Distance.Event;
+    distance: number;
+    distanceMode: boolean;
+    split: Distance.Event;
+    paceMode: boolean;
+    unit: Distance.Unit;
+  };
 
-	export const calcTime = ({
-		timeIn,
-		race,
-		distance: distanceIn,
-		distanceMode,
-		split,
-		paceMode,
-		unit
-	}: calcTimeArgs): number => {
-		let factor = 0;
-		let distance = 0;
+  export const calcTime = ({
+    timeIn,
+    race,
+    distance: distanceIn,
+    distanceMode,
+    split,
+    paceMode,
+    unit
+  }: calcTimeArgs): [number, Error.ErrorMessage] => {
 
-		const splitDistance = split.distance;
-		const raceDistance = race.distance;
+    const { distance: splitDistance } = split;
+    const { distance: raceDistance } = race;
 
-		if (!distanceMode) {
-			factor = !paceMode ? splitDistance / raceDistance : raceDistance / splitDistance;
-		} else {
-			distance = unit === 'k' ? distanceIn * 1000 : Distance.convertMilesToMeters(distanceIn);
-			factor = !paceMode ? splitDistance / distance : distance / splitDistance;
-		}
+    let factor = 0;
+    if (distanceMode) {
+      // distance mode
+      const distanceMeters = Distance.getDistanceInMeters(unit, distanceIn);
+      // error check
+      if (distanceMeters < splitDistance) {
+        return [0, Error.DISTANCE_SHORTER_THAN_SPLIT];
+      }
+      factor = !paceMode ? splitDistance / distanceMeters : distanceMeters / splitDistance;
 
-		if (factor > 1 && !paceMode) {
-			return 0;
-		}
+    } else {
+      // event mode error check
+      if (raceDistance < split.distance) {
+        return [0, Error.DISTANCE_SHORTER_THAN_SPLIT];
+      }
+      factor = !paceMode ? splitDistance / raceDistance : raceDistance / splitDistance;
+    }
 
-		return timeIn * factor;
-	};
+    if (factor > 1 && !paceMode) {
+      return [0, Error.DISTANCE_SHORTER_THAN_SPLIT];
+    }
 
-	export type DisplayTime = [number, number, number, number, number, string];
+    return [timeIn * factor, Error.NO_ERROR];
+  };
 
-	export const makeDecimalString = (dec: number): string => {
-		const decimalMultiplied = Math.round(dec * 1000);
-		const decString = `000${decimalMultiplied}`;
-		return decString.substr(decString.length - 3);
-	};
+  export type DisplayTime = [number, number, number, number, number, string, Error.ErrorMessage];
 
-	export const makeDisplayTime = (time: number): DisplayTime => {
-		const h1 = Math.floor(time / 60 / 60);
-		const m10 = Math.floor(((time / 60) % 60) / 10);
-		const m1 = Math.floor(((time / 60) % 60) % 10);
-		const s10 = Math.floor((time % 60) / 10);
-		const s1 = Math.floor((time % 60) % 10);
-		const d = makeDecimalString(((time % 60) % 10) % 1);
-		return [h1, m10, m1, s10, s1, d];
-	};
+  export const makeDecimalString = (dec: number): string => {
+    const decimalMultiplied = Math.round(dec * 1000);
+    const decString = `000${decimalMultiplied}`;
+    return decString.substr(decString.length - 3);
+  };
 
-	// TODO: this might go unused
-	type DisplayTimeIn = [number, number, number, number, number];
-	export const makeTimeFromDisplayTime = (displayTime: DisplayTimeIn) => {
-		let [h1, m10, m1, s10, s1] = displayTime;
+  export const makeDisplayTime = (time: number): DisplayTime => {
+    const h1 = Math.floor(time / 60 / 60);
+    const m10 = Math.floor(((time / 60) % 60) / 10);
+    const m1 = Math.floor(((time / 60) % 60) % 10);
+    const s10 = Math.floor((time % 60) / 10);
+    const s1 = Math.floor((time % 60) % 10);
+    const d = makeDecimalString(((time % 60) % 10) % 1);
+    if (h1 >= 10) {
+      return [0, 0, 0, 0, 0, '000', Error.TIME_IS_TOO_LONG];
+    }
+    return [h1, m10, m1, s10, s1, d, Error.NO_ERROR];
+  };
 
-		h1 = h1 * 60 * 60;
-		m10 = m10 * 60 * 10;
-		m1 = m1 * 60;
-		s10 = s10 * 10;
+  // TODO: this might go unused
+  type DisplayTimeIn = [number, number, number, number, number];
+  export const makeTimeFromDisplayTime = (displayTime: DisplayTimeIn) => {
+    let [h1, m10, m1, s10, s1] = displayTime;
 
-		return h1 + m1 + m10 + s10 + s1;
-	};
+    h1 = h1 * 60 * 60;
+    m10 = m10 * 60 * 10;
+    m1 = m1 * 60;
+    s10 = s10 * 10;
+
+    return h1 + m1 + m10 + s10 + s1;
+  };
 }

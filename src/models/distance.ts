@@ -3,6 +3,10 @@ import { Loop } from './util';
 export namespace Distance {
   const K = 1000;
 
+  export const getDistanceInMeters = (unit: Unit, distance: number) => {
+    return unit === 'k' ? distance * 1000 : convertMilesToMeters(distance);
+  }
+
   export const convertMilesToMeters = (miles: number): number => {
     return miles * 1609.344;
   };
@@ -148,11 +152,4 @@ export namespace Distance {
   export const getEventIndex = (event: Event): number => {
     return EVENTS.findIndex((split) => event.name === split.name);
   };
-
-  export const makeDisplayEvents = (event: Event) =>
-    Loop.getCenteredArray(
-      EVENTS,
-      EVENTS.findIndex((e) => e.name === event.name),
-      7
-    );
 }

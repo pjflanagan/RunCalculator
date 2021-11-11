@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Distance, Time } from '../models';
+	import { Distance, Time, Error } from '../models';
 	import { Container } from '../elements';
 
 	import HeaderComponent from './main/HeaderComponent.svelte';
@@ -13,7 +13,7 @@
 	// }
 
 	// distance
-	let race: Distance.Event = Distance.getEvent('5K');
+	let race: Distance.Event = Distance.getEvent(Distance.EventName.K5);
 	let distanceMode: boolean = false;
 	let distance: number = 0;
 	let unit: Distance.Unit = 'm';
@@ -23,9 +23,9 @@
 	let paceMode = false;
 
 	// split
-	let split = Distance.getEvent('MILE');
+	let split = Distance.getEvent(Distance.EventName.MILE);
 
-	$: timeOut = Time.calcTime({
+	$: [timeOut, timeOutError] = Time.calcTime({
 		split,
 		timeIn,
 		paceMode,
@@ -42,6 +42,6 @@
 	<DistanceComponent bind:race bind:distanceMode bind:unit bind:distance />
 	<TimeInputComponent bind:timeIn bind:paceMode />
 	<SplitComponent bind:split />
-	<TimeOutputComponent {timeOut} />
+	<TimeOutputComponent {timeOut} inputError={Error.hasError(timeOutError)} />
 	<!-- {/* <AdComponent /> */} -->
 </Container>

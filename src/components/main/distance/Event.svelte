@@ -2,10 +2,11 @@
 	import { Distance } from '../../../models';
 
 	export let event: Distance.Event;
+	export let allEvents: Distance.Event[];
 
-	const EVENT_COUNT = Distance.EVENTS.length;
+	const EVENT_COUNT = allEvents.length;
 
-	$: offset = Distance.getEventIndex(event);
+	$: offset = Distance.getEventIndex(event) + 3;
 </script>
 
 <div
@@ -15,13 +16,15 @@
     transform: translateX(${(-100 * offset) / EVENT_COUNT}%);
   `}
 >
-	{#each Distance.EVENTS as displayEvent}
-		<div class="event">
-			<div class="event-name">
-				{displayEvent.name}
+	{#if event.name !== Distance.EventName.NONE}
+		{#each allEvents as displayEvent}
+			<div class="event">
+				<div class="event-name">
+					{displayEvent.name}
+				</div>
 			</div>
-		</div>
-	{/each}
+		{/each}
+	{/if}
 </div>
 
 <style lang="scss">

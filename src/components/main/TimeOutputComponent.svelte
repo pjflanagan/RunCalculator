@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { Row, Clock, Colon, Number, Decimal, Unit } from '../../elements';
-	import { Time } from '../../models';
+	import { Time, Error } from '../../models';
 
 	export let timeOut: number;
+	export let inputError: boolean;
 
 	const large = true;
 
-	$: [h1, m10, m1, s10, s1, d] = Time.makeDisplayTime(timeOut);
-	$: error = h1 >= 10;
+	$: [h1, m10, m1, s10, s1, d, displayTimeError] = Time.makeDisplayTime(timeOut);
+	$: error = Error.hasError(displayTimeError) || inputError;
 </script>
 
 <Row height={24}>

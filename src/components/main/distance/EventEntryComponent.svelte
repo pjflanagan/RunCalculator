@@ -1,16 +1,43 @@
 <script lang="ts">
-	import { Distance } from '../../../models';
+	import classNames from 'classnames';
+	import { Loop, Distance } from '../../../models';
 	import Event from './Event.svelte';
 
 	export let race: Distance.Event;
 
-	$: displayEvents = Distance.makeDisplayEvents(race);
+	const DISPALY_EVENTS = [
+		Distance.getEvent(Distance.EventName.NONE),
+		Distance.getEvent(Distance.EventName.NONE),
+		Distance.getEvent(Distance.EventName.NONE),
+		...Distance.EVENTS,
+		Distance.getEvent(Distance.EventName.NONE),
+		Distance.getEvent(Distance.EventName.NONE),
+		Distance.getEvent(Distance.EventName.NONE)
+	];
+
+	$: displayEvents = Loop.getCenteredArray(
+		DISPALY_EVENTS,
+		DISPALY_EVENTS.findIndex((e) => e.name === race.name),
+		7
+	);
+
+	const onClick = (event: Distance.Event) => {
+		if (event.name !== Distance.EventName.NONE) {
+			race = event;
+		}
+	};
+
+	const getClassName = (event: Distance.Event, i: number) => {
+		return classNames('event-holder', `holder-${Math.abs(i)}`, {
+			hoverable: event.name !== Distance.EventName.NONE
+		});
+	};
 </script>
 
 <div class="event-picker">
 	{#each displayEvents as event, i}
-		<div class={`event-holder holder-${Math.abs(i)}`} on:click={() => (race = event)}>
-			<Event {event} />
+		<div class={getClassName(event, i)} on:click={() => onClick(event)}>
+			<Event {event} allEvents={DISPALY_EVENTS} />
 		</div>
 	{/each}
 </div>
@@ -27,9 +54,12 @@
 
 		.event-holder {
 			height: 100%;
-			cursor: pointer;
 			font-size: 22px;
 			overflow: hidden;
+
+			&.hoverable {
+				cursor: pointer;
+			}
 
 			&.holder-3 {
 				width: 24%;

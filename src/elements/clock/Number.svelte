@@ -22,7 +22,7 @@
 				<div class="number-holder">
 					<div class={className}>
 						{#if error}
-							X
+							0
 						{:else}
 							{number}
 						{/if}

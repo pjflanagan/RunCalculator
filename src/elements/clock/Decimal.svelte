@@ -20,8 +20,8 @@
 					node.textContent = text;
 					return;
 				}
-				const displayDec = `.${Time.makeDecimalString(Math.random())}`;
-				node.textContent = displayDec;
+				const animationDisplayDec = `.${Time.makeDecimalString(Math.random())}`;
+				node.textContent = animationDisplayDec;
 			}
 		};
 	};
@@ -32,12 +32,7 @@
 <Panel type="number">
 	{#key dec}
 		<div class={className} in:cycle>
-			{#if error}
-				XXX
-			{:else}
-				<!-- TODO: there is an error here -->
-				{`.${dec}`}
-			{/if}
+			{`.${dec}`}
 		</div>
 	{/key}
 </Panel>
