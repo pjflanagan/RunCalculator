@@ -4,7 +4,8 @@
 
 	export let num: number;
 	export let large: boolean = false;
-	export let onClick: () => void = null;
+	export let addTime: (deltaSeconds: number) => void = null;
+	export let deltaSeconds: number = 0;
 	export let error: boolean = false;
 
 	const NUMBERS = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
@@ -13,9 +14,24 @@
 
 	$: translateY = -10 * (9 - num);
 	$: className = classNames('number', { large, error });
+
+	const onClick = () => addTime(deltaSeconds);
+
+	const onKeyDown = (e: KeyboardEvent) => {
+		switch (e.code) {
+			case 'ArrowUp':
+				addTime(deltaSeconds);
+				break;
+			case 'ArrowDown':
+				addTime(-1 * deltaSeconds);
+				break;
+			default:
+				return;
+		}
+	};
 </script>
 
-<Panel {onClick} type="number">
+<Panel {onClick} type="number" {onKeyDown}>
 	<div class="number-column-holder">
 		<div class="number-column" style={`transform:translateY(${translateY}%)`}>
 			{#each NUMBERS as number}

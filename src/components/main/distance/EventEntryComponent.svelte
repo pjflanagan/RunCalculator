@@ -20,6 +20,8 @@
 		DISPALY_EVENTS.findIndex((e) => e.id === race.id),
 		7
 	);
+	$: leftEvent = visibleEvents[2];
+	$: rightEvent = visibleEvents[4];
 
 	const onClick = (event: Distance.Event) => {
 		if (!Distance.isNoDistanceEvent(event)) {
@@ -32,58 +34,82 @@
 			hoverable: !Distance.isNoDistanceEvent(event)
 		});
 	};
+
+	const onKeyDown = (e: KeyboardEvent) => {
+		switch (e.code) {
+			case 'ArrowLeft':
+				if (!Distance.isNoDistanceEvent(leftEvent)) {
+					race = leftEvent;
+				}
+				break;
+			case 'ArrowRight':
+				if (!Distance.isNoDistanceEvent(rightEvent)) {
+					race = rightEvent;
+				}
+				break;
+			default:
+				return;
+		}
+	};
 </script>
 
-<div class="event-picker">
-	{#each visibleEvents as event, i}
-		<div class={getClassName(event, i)} on:click={() => onClick(event)}>
-			<Event {event} displayEvents={DISPALY_EVENTS} />
-		</div>
-	{/each}
+<div class="event-picker-holder" tabindex="0" on:keydown={onKeyDown}>
+	<div class="event-picker">
+		{#each visibleEvents as event, i}
+			<div class={getClassName(event, i)} on:click={() => onClick(event)}>
+				<Event {event} displayEvents={DISPALY_EVENTS} />
+			</div>
+		{/each}
+	</div>
 </div>
 
 <style lang="scss">
 	@import '../../../main.scss';
 
-	.event-picker {
-		position: relative;
-		display: flex;
-		height: 42px;
-		top: 50%;
-		transform: translateY(-50%);
+	.event-picker-holder {
+		width: 100%;
+		height: 100%;
 
-		.event-holder {
-			height: 100%;
-			font-size: 22px;
-			overflow: hidden;
+		.event-picker {
+			position: relative;
+			display: flex;
+			height: 42px;
+			top: 50%;
+			transform: translateY(-50%);
 
-			&.hoverable {
-				cursor: pointer;
-			}
+			.event-holder {
+				height: 100%;
+				font-size: 22px;
+				overflow: hidden;
 
-			&.holder-3 {
-				width: 24%;
-				background: $black;
-				color: #fff;
-				cursor: default;
-			}
-			&.holder-2,
-			&.holder-4 {
-				width: 16%;
-				color: $black;
-				font-size: 18px;
-			}
-			&.holder-1,
-			&.holder-5 {
-				width: 12%;
-				color: $grey;
-				font-size: 14px;
-			}
-			&.holder-0,
-			&.holder-6 {
-				width: 10%;
-				color: $grey;
-				font-size: 10px;
+				&.hoverable {
+					cursor: pointer;
+				}
+
+				&.holder-3 {
+					width: 24%;
+					background: $black;
+					color: #fff;
+					cursor: default;
+				}
+				&.holder-2,
+				&.holder-4 {
+					width: 16%;
+					color: $black;
+					font-size: 18px;
+				}
+				&.holder-1,
+				&.holder-5 {
+					width: 12%;
+					color: $grey;
+					font-size: 14px;
+				}
+				&.holder-0,
+				&.holder-6 {
+					width: 10%;
+					color: $grey;
+					font-size: 10px;
+				}
 			}
 		}
 	}

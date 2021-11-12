@@ -46,15 +46,15 @@
 		</div>
 		<div class="clock-holder">
 			<Clock>
-				<Number num={h1} onClick={() => addTime(3600)} />
+				<Number num={h1} {addTime} deltaSeconds={3600} />
 				<Unit unit="h" />
 				<Colon />
-				<Number num={m10} onClick={() => addTime(600)} />
-				<Number num={m1} onClick={() => addTime(60)} />
+				<Number num={m10} {addTime} deltaSeconds={600} />
+				<Number num={m1} {addTime} deltaSeconds={60} />
 				<Unit unit="m" />
 				<Colon />
-				<Number num={s10} onClick={() => addTime(10)} />
-				<Number num={s1} onClick={() => addTime(1)} />
+				<Number num={s10} {addTime} deltaSeconds={10} />
+				<Number num={s1} {addTime} deltaSeconds={1} />
 				<Unit unit="s" />
 			</Clock>
 		</div>

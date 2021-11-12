@@ -5,6 +5,16 @@
 	export let split: Distance.Event;
 
 	$: splitBackerMarginLeft = Distance.getSplitIndex(split);
+
+	const onKeyDown = (e: KeyboardEvent, splitOption: Distance.Event) => {
+		switch (e.code) {
+			case 'Enter':
+				split = splitOption;
+				break;
+			default:
+				return;
+		}
+	};
 </script>
 
 <Row>
@@ -18,6 +28,8 @@
 						class="split"
 						class:selected={split.id === splitOption.id}
 						on:click={() => (split = splitOption)}
+						tabindex={0}
+						on:keydown={(e) => onKeyDown(e, splitOption)}
 					>
 						{splitOption.name}
 					</div>

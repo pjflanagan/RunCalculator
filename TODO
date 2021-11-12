@@ -1,23 +1,21 @@
 
+0: PWA and admin
+- [ ] PWA
+
 1: SCSS and final components
 - [ ] layout 
+  - device size changes
   - organize scss into variables
   - best place for main.scss?
-  - device size changes
-- [ ] distance entry component
-  - autoselect the text
+- [ ] navigation using tabs and return and arrows, outline match theme
 
-2: Bugs
-- [ ] set a max time for entry (when "error" like event is greater than split or too large, display red clock)
-
-3: animations
+2: animations
 - [ ] animation
   - animate hour being added (Output) or removed (use svelte tutorial for defered animation)
   - animate pace to time / event to distance change
-
-4: PWA and admin
-- [ ] PWA
-- [ ] cookies for previously entered data
+  - more hover errects that are on theme
+- [ ] swipe
 
 ?:
 - [ ] url to share time and distance
+- [ ] cookies for previously entered data

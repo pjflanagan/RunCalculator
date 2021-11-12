@@ -1,17 +1,19 @@
-<!-- TODO: this should just be a Panel, which can be a number -->
 <script lang="ts">
 	import classNames from 'classnames';
 
 	export let type: 'number' | 'colon' | 'unit' = 'number';
 	export let onClick: () => void = null;
+	export let onKeyDown: (e: KeyboardEvent) => void = null;
 
 	const className = classNames('panel', {
 		hover: !!onClick,
 		unit: type === 'unit'
 	});
+
+	const tabindex = onKeyDown ? 0 : null;
 </script>
 
-<div class={className} on:click={onClick}>
+<div class={className} on:click={onClick} {tabindex} on:keydown={onKeyDown}>
 	<slot />
 </div>
 
