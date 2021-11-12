@@ -6,7 +6,7 @@
 	export let onKeyDown: (e: KeyboardEvent) => void = null;
 
 	const className = classNames('panel', {
-		hover: !!onClick,
+		hoverable: !!onClick,
 		unit: type === 'unit'
 	});
 
@@ -22,8 +22,15 @@
 		width: 16.666%;
 		text-align: center;
 		font-size: 2em;
+		outline: none;
 
-		&.hover {
+		&:focus {
+			outline: 4px solid #000;
+			background: #000;
+			box-shadow: 0px 6px 12px #000a;
+		}
+
+		&.hoverable {
 			cursor: pointer;
 		}
 

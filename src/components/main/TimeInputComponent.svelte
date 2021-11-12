@@ -49,11 +49,11 @@
 				<Number num={h1} {addTime} deltaSeconds={3600} />
 				<Unit unit="h" />
 				<Colon />
-				<Number num={m10} {addTime} deltaSeconds={600} />
+				<Number num={m10} maxNum={5} {addTime} deltaSeconds={600} />
 				<Number num={m1} {addTime} deltaSeconds={60} />
 				<Unit unit="m" />
 				<Colon />
-				<Number num={s10} {addTime} deltaSeconds={10} />
+				<Number num={s10} maxNum={5} {addTime} deltaSeconds={10} />
 				<Number num={s1} {addTime} deltaSeconds={1} />
 				<Unit unit="s" />
 			</Clock>

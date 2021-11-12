@@ -1,3 +1,5 @@
+import { Loop } from './util';
+
 export namespace Distance {
   const K = 1000;
   const MILES_TO_METERS_RATIO = 1609.344;
@@ -199,6 +201,10 @@ export namespace Distance {
   export const getSplitIndex = (e: Event): number => {
     return SPLITS.findIndex((split) => e.name === split.name);
   };
+
+  export const getSplitAtIndex = (i: number): Event => {
+    return Loop.get(SPLITS, i);
+  }
 
   export const getEventIndex = (e: Event): number => {
     return EVENTS.findIndex((event) => e.name === event.name);

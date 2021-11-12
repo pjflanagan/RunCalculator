@@ -3,6 +3,7 @@
 	import Panel from './Panel.svelte';
 
 	export let num: number;
+	export let maxNum: number = 9;
 	export let large: boolean = false;
 	export let addTime: (deltaSeconds: number) => void = null;
 	export let deltaSeconds: number = 0;
@@ -19,11 +20,30 @@
 
 	const onKeyDown = (e: KeyboardEvent) => {
 		switch (e.code) {
+			case 'ArrowRight':
 			case 'ArrowUp':
 				addTime(deltaSeconds);
 				break;
 			case 'ArrowDown':
+			case 'ArrowLeft':
 				addTime(-1 * deltaSeconds);
+				break;
+			case 'Digit0':
+			case 'Digit1':
+			case 'Digit2':
+			case 'Digit3':
+			case 'Digit4':
+			case 'Digit5':
+			case 'Digit6':
+			case 'Digit7':
+			case 'Digit8':
+			case 'Digit9':
+				const enteredNum = parseInt(e.key);
+				if (enteredNum > maxNum) {
+					break;
+				}
+				addTime(deltaSeconds * (enteredNum - num));
+				// TODO: if they entered a number then advance to next tab
 				break;
 			default:
 				return;
@@ -31,7 +51,7 @@
 	};
 </script>
 
-<Panel {onClick} type="number" {onKeyDown}>
+<Panel onClick={addTime ? onClick : null} type="number" onKeyDown={addTime ? onKeyDown : null}>
 	<div class="number-column-holder">
 		<div class="number-column" style={`transform:translateY(${translateY}%)`}>
 			{#each NUMBERS as number}

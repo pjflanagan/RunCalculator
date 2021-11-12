@@ -4,12 +4,23 @@
 
 	export let split: Distance.Event;
 
-	$: splitBackerMarginLeft = Distance.getSplitIndex(split);
+	$: splitIndex = Distance.getSplitIndex(split);
+	$: leftSplit = Distance.getSplitAtIndex(splitIndex - 1);
+	$: rightSplit = Distance.getSplitAtIndex(splitIndex + 1);
 
-	const onKeyDown = (e: KeyboardEvent, splitOption: Distance.Event) => {
+	const onKeyDown = (e: KeyboardEvent) => {
 		switch (e.code) {
-			case 'Enter':
-				split = splitOption;
+			case 'ArrowLeft':
+			case 'ArrowDown':
+				if (!Distance.isNoDistanceEvent(leftSplit)) {
+					split = leftSplit;
+				}
+				break;
+			case 'ArrowRight':
+			case 'ArrowUp':
+				if (!Distance.isNoDistanceEvent(rightSplit)) {
+					split = rightSplit;
+				}
 				break;
 			default:
 				return;
@@ -28,14 +39,17 @@
 						class="split"
 						class:selected={split.id === splitOption.id}
 						on:click={() => (split = splitOption)}
-						tabindex={0}
-						on:keydown={(e) => onKeyDown(e, splitOption)}
 					>
 						{splitOption.name}
 					</div>
 				</div>
 			{/each}
-			<div class="split-backer" style={`left: ${20 * splitBackerMarginLeft}%`} />
+			<div
+				class="split-backer"
+				style={`left: ${20 * splitIndex}%`}
+				tabindex={0}
+				on:keydown={onKeyDown}
+			/>
 		</div>
 	</RowWidgetHolder>
 </Row>
@@ -92,6 +106,12 @@
 			background: $black;
 			z-index: 1;
 			transition: left 0.2s;
+
+			&:focus {
+				outline: 4px solid #000;
+				background: #000;
+				box-shadow: 0px 6px 12px #000a;
+			}
 		}
 	}
 </style>

@@ -38,11 +38,13 @@
 	const onKeyDown = (e: KeyboardEvent) => {
 		switch (e.code) {
 			case 'ArrowLeft':
+			case 'ArrowDown':
 				if (!Distance.isNoDistanceEvent(leftEvent)) {
 					race = leftEvent;
 				}
 				break;
 			case 'ArrowRight':
+			case 'ArrowUp':
 				if (!Distance.isNoDistanceEvent(rightEvent)) {
 					race = rightEvent;
 				}
@@ -53,12 +55,23 @@
 	};
 </script>
 
-<div class="event-picker-holder" tabindex="0" on:keydown={onKeyDown}>
+<div class="event-picker-holder">
 	<div class="event-picker">
 		{#each visibleEvents as event, i}
-			<div class={getClassName(event, i)} on:click={() => onClick(event)}>
-				<Event {event} displayEvents={DISPALY_EVENTS} />
-			</div>
+			{#if event.id === race.id}
+				<div
+					class={getClassName(event, i)}
+					on:click={() => onClick(event)}
+					tabindex="0"
+					on:keydown={onKeyDown}
+				>
+					<Event {event} displayEvents={DISPALY_EVENTS} />
+				</div>
+			{:else}
+				<div class={getClassName(event, i)} on:click={() => onClick(event)}>
+					<Event {event} displayEvents={DISPALY_EVENTS} />
+				</div>
+			{/if}
 		{/each}
 	</div>
 </div>
@@ -91,6 +104,12 @@
 					background: $black;
 					color: #fff;
 					cursor: default;
+
+					&:focus {
+						outline: 4px solid #000;
+						background: #000;
+						box-shadow: 0px 6px 12px #000a;
+					}
 				}
 				&.holder-2,
 				&.holder-4 {
