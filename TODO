@@ -8,11 +8,10 @@
   - autoselect the text
 
 2: Bugs
-- [ ] set a max time for entry (when "error" like event is greater than split or too large, display X's in time)
+- [ ] set a max time for entry (when "error" like event is greater than split or too large, display red clock)
 
 3: animations
 - [ ] animation
-  - animate event component change
   - animate hour being added (Output) or removed (use svelte tutorial for defered animation)
   - animate pace to time / event to distance change
 

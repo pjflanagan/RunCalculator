@@ -16,7 +16,7 @@
 				<div class="split-holder">
 					<div
 						class="split"
-						class:selected={split.name === splitOption.name}
+						class:selected={split.id === splitOption.id}
 						on:click={() => (split = splitOption)}
 					>
 						{splitOption.name}

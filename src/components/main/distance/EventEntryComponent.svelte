@@ -6,38 +6,38 @@
 	export let race: Distance.Event;
 
 	const DISPALY_EVENTS = [
-		Distance.getEvent(Distance.EventName.NONE),
-		Distance.getEvent(Distance.EventName.NONE),
-		Distance.getEvent(Distance.EventName.NONE),
+		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE1),
+		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE2),
+		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE3),
 		...Distance.EVENTS,
-		Distance.getEvent(Distance.EventName.NONE),
-		Distance.getEvent(Distance.EventName.NONE),
-		Distance.getEvent(Distance.EventName.NONE)
+		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE4),
+		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE5),
+		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE6)
 	];
 
-	$: displayEvents = Loop.getCenteredArray(
+	$: visibleEvents = Loop.getCenteredArray(
 		DISPALY_EVENTS,
-		DISPALY_EVENTS.findIndex((e) => e.name === race.name),
+		DISPALY_EVENTS.findIndex((e) => e.id === race.id),
 		7
 	);
 
 	const onClick = (event: Distance.Event) => {
-		if (event.name !== Distance.EventName.NONE) {
+		if (!Distance.isNoDistanceEvent(event)) {
 			race = event;
 		}
 	};
 
 	const getClassName = (event: Distance.Event, i: number) => {
 		return classNames('event-holder', `holder-${Math.abs(i)}`, {
-			hoverable: event.name !== Distance.EventName.NONE
+			hoverable: !Distance.isNoDistanceEvent(event)
 		});
 	};
 </script>
 
 <div class="event-picker">
-	{#each displayEvents as event, i}
+	{#each visibleEvents as event, i}
 		<div class={getClassName(event, i)} on:click={() => onClick(event)}>
-			<Event {event} allEvents={DISPALY_EVENTS} />
+			<Event {event} displayEvents={DISPALY_EVENTS} />
 		</div>
 	{/each}
 </div>
