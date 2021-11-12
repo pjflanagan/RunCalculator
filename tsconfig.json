@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "module": "commonjs",
+    "module": "es2020",
+    // TODO: use this module for testing
+    // "module": "commonjs",
     "lib": [
       "es2020",
       "DOM"
@@ -39,7 +41,6 @@
     "src/**/*.js",
     "src/**/*.ts",
     "src/**/*.svelte",
-    "src/**/*.spec.ts"
   ],
   "exclude": [
     "archive"
