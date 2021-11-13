@@ -31,7 +31,7 @@
 	$: labelDisplay = paceMode ? 'PACE' : 'TIME';
 </script>
 
-<Row>
+<Row className="widget-clock">
 	<RowLabel onClick={() => (paceMode = !paceMode)}>{labelDisplay}</RowLabel>
 	<RowDivider />
 	<RowWidgetHolder>

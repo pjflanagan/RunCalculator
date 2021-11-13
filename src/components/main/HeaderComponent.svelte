@@ -2,7 +2,7 @@
 	import { Row } from '../../elements/index';
 </script>
 
-<Row height={16}>
+<Row className="header">
 	<div class="header-holder">
 		<div class="header">Run Calculator</div>
 	</div>
@@ -28,6 +28,7 @@
 		.header-holder {
 			.header {
 				font-size: 6.9em;
+				margin-top: 12px;
 			}
 		}
 	}

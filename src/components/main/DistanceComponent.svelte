@@ -13,7 +13,7 @@
 	$: labelDisplay = distanceMode ? 'DISTANCE' : 'EVENT';
 </script>
 
-<Row>
+<Row className="widget">
 	<RowLabel onClick={() => (distanceMode = !distanceMode)}>
 		{labelDisplay}
 	</RowLabel>

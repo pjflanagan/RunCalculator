@@ -6,17 +6,25 @@
 	@import 'src/main.scss';
 
 	.divider-holder {
-		height: 100%;
-		width: 18px;
+		display: none;
+		height: 0;
+	}
 
-		.divider {
-			position: relative;
-			margin: 0 auto;
-			top: 50%;
-			transform: translateY(-50%);
-			background: $black;
-			height: 56px;
-			width: 5px;
+	@media (min-width: 580px) {
+		.divider-holder {
+			display: inline;
+			height: 100%;
+			width: 18px;
+
+			.divider {
+				background: $black;
+				position: relative;
+				margin: 0 auto;
+				top: 50%;
+				transform: translateY(-50%);
+				height: 56px;
+				width: 5px;
+			}
 		}
 	}
 </style>

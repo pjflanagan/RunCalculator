@@ -31,7 +31,7 @@
 
 	const getClassName = (event: Distance.Event, i: number) => {
 		return classNames('event-holder', `holder-${Math.abs(i)}`, {
-			hoverable: !Distance.isNoDistanceEvent(event)
+			hoverable: !Distance.isNoDistanceEvent(event) && i !== 3
 		});
 	};
 
@@ -94,9 +94,14 @@
 				height: 100%;
 				font-size: 22px;
 				overflow: hidden;
+				transition: color 0.2s;
 
 				&.hoverable {
 					cursor: pointer;
+
+					&:hover {
+						color: $black;
+					}
 				}
 
 				&.holder-3 {
@@ -114,7 +119,7 @@
 				&.holder-2,
 				&.holder-4 {
 					width: 16%;
-					color: $black;
+					color: $grey;
 					font-size: 18px;
 				}
 				&.holder-1,

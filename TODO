@@ -1,21 +1,22 @@
 
-0: PWA and admin
+0: FIANL MVP
 - [ ] PWA
-
-1: SCSS and final components
 - [ ] layout 
   - device size changes
   - organize scss into variables
   - best place for main.scss?
-- [ ] navigation using tabs and return and arrows, outline match theme
 
-2: animations
+1: animations
 - [ ] animation
   - animate hour being added (Output) or removed (use svelte tutorial for defered animation)
   - animate pace to time / event to distance change
-  - more hover errects that are on theme
-- [ ] swipe
+  - more hover effects that are on theme
 
-?:
+2: navigation 
+- [ ] touchscreen swipe
+- [ ] tabbing 
+  - :focus-within, use focus on parent element
+
+3:
 - [ ] url to share time and distance
 - [ ] cookies for previously entered data

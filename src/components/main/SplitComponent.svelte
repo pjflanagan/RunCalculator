@@ -28,7 +28,7 @@
 	};
 </script>
 
-<Row>
+<Row className="widget">
 	<RowLabel>SPLIT</RowLabel>
 	<RowDivider />
 	<RowWidgetHolder>

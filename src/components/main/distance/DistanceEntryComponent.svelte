@@ -73,6 +73,11 @@
 			line-height: $distanceEntryHeight;
 			font-size: 22px;
 			cursor: pointer;
+			transition: color 0.2s;
+
+			&:hover {
+				color: #fffd;
+			}
 		}
 	}
 </style>

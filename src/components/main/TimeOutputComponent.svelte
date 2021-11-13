@@ -11,7 +11,7 @@
 	$: error = Error.hasError(displayTimeError) || inputError;
 </script>
 
-<Row height={24}>
+<Row className="time-out">
 	<Clock>
 		{#if h1 > 0 && !error}
 			<Number num={h1} {large} {error} />
