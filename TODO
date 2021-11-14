@@ -1,22 +1,21 @@
 
 0: FIANL MVP
 - [ ] PWA
-- [ ] layout 
-  - device size changes
-  - organize scss into variables
-  - best place for main.scss?
 
-1: animations
+1: styles
 - [ ] animation
   - animate hour being added (Output) or removed (use svelte tutorial for defered animation)
   - animate pace to time / event to distance change
   - more hover effects that are on theme
+- [ ] layout 
+  - organize scss into variables
+  - best place for main.scss?
 
 2: navigation 
 - [ ] touchscreen swipe
 - [ ] tabbing 
   - :focus-within, use focus on parent element
 
-3:
+3: network
 - [ ] url to share time and distance
 - [ ] cookies for previously entered data

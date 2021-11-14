@@ -1,10 +1,6 @@
 /// <reference lib="WebWorker" />
 
-// export empty type because of tsc --isolatedModules flag
-export type { };
-declare const self: ServiceWorkerGlobalScope;
-
-const cacheName = '::yourserviceworker';
+const cacheName = 'runcalculator-cache';
 const version = 'v0.0.1';
 
 self.addEventListener('install', function (event) {
@@ -40,7 +36,7 @@ self.addEventListener('fetch', function (event) {
     event.respondWith(
       fetch(request).catch(function () {
         return caches.match('/offline');
-      }) as Promise<Response>
+      })
     );
     return;
   }
@@ -68,7 +64,7 @@ self.addEventListener('fetch', function (event) {
             // return the cache response or the /offline page.
             return response || caches.match('/offline');
           });
-        }) as Promise<Response>
+        })
     );
     return;
   }
@@ -100,7 +96,7 @@ self.addEventListener('fetch', function (event) {
               }
             })
         );
-      }) as Promise<Response>
+      })
     );
     return;
   }
