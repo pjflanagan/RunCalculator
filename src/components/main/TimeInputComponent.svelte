@@ -27,7 +27,7 @@
 		timeIn = newTime;
 	};
 
-	$: [h1, m10, m1, s10, s1] = Time.makeDisplayTime(timeIn);
+	$: [_h10, h1, m10, m1, s10, s1, _d, _error] = Time.makeDisplayTime(timeIn);
 	$: labelDisplay = paceMode ? 'PACE' : 'TIME';
 </script>
 

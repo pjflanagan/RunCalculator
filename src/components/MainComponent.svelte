@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { Distance, Time, Error } from '../models';
+	import { onMount, afterUpdate } from 'svelte';
+
+	import { Distance, Time, Error, URL } from '../models';
 	import { Container } from '../elements';
 
 	import HeaderComponent from './main/HeaderComponent.svelte';
@@ -7,6 +9,8 @@
 	import TimeInputComponent from './main/TimeInputComponent.svelte';
 	import SplitComponent from './main/SplitComponent.svelte';
 	import TimeOutputComponent from './main/TimeOutputComponent.svelte';
+
+	const url = new URL();
 
 	// if (process.browser) {
 	//   const myCookieValue = getCookie("myCookie");
@@ -19,11 +23,36 @@
 	let unit: Distance.Unit = 'm';
 
 	// time
-	let timeIn = 0;
-	let paceMode = false;
+	let timeIn: number = 0;
+	let paceMode: boolean = false;
 
 	// split
-	let split = Distance.getEvent(Distance.EventName.MILE);
+	let split: Distance.Event = Distance.getEvent(Distance.EventName.MILE);
+
+	onMount(() => {
+		url.loadParams(window.location.search);
+
+		race = url.getParamOrDefault('race', race);
+		distanceMode = url.getParamOrDefault('distanceMode', distanceMode);
+		distance = url.getParamOrDefault('distance', distance);
+		unit = url.getParamOrDefault('unit', unit);
+		timeIn = url.getParamOrDefault('timeIn', timeIn);
+		paceMode = url.getParamOrDefault('paceMode', paceMode);
+		split = url.getParamOrDefault('split', split);
+	});
+
+	afterUpdate(() => {
+		const urlParamString = url.setParams({
+			split: split.id,
+			timeIn,
+			paceMode,
+			race: race.id,
+			distanceMode,
+			distance,
+			unit
+		});
+		window.history.replaceState(null, null, urlParamString);
+	});
 
 	$: [timeOut, timeOutError] = Time.calcTime({
 		split,

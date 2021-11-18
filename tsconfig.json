@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
+    // NOTE: use this module normally
     "module": "es2020",
-    // TODO: use this module for testing
+    // NOTE: use this module for testing
     // "module": "commonjs",
     "lib": [
       "es2020",

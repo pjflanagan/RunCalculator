@@ -8,9 +8,9 @@
 	const DISPALY_EVENTS = [
 		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE1),
 		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE2),
-		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE3),
+		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE3), // TODO: make this link to manual entry
 		...Distance.EVENTS,
-		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE4),
+		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE4), // TODO: make this link to manual entry
 		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE5),
 		Distance.makeNoDistanceEvent(Distance.EventIDNone.NONE6)
 	];

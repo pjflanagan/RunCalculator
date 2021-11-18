@@ -46,16 +46,21 @@ export namespace Distance {
     K10 = '10K',
     MI10 = '10MI',
     HALF = 'HALF',
-    MARATHON = 'MARATHON'
+    MARATHON = 'MARATHON',
+    K50 = '50K',
+    M50 = '50MI',
+    K100 = '100K',
+    M100 = '100MI',
   };
 
   export enum EventIDNone {
     NONE1 = 'NONE1',
     NONE2 = 'NONE2',
-    NONE3 = 'NONE3',
-    NONE4 = 'NONE4',
+    NONE3 = 'NONE3', // TODO: MANUAL
+    NONE4 = 'NONE4', // TODO: MANUAL
     NONE5 = 'NONE5',
     NONE6 = 'NONE6',
+    // MANUAL = 'MANUAL1'TODO:????
   };
 
   type EventID = EventName | EventIDNone;
@@ -160,6 +165,26 @@ export namespace Distance {
       id: EventName.MARATHON,
       name: EventName.MARATHON,
       distance: convertMilesToMeters(26.2)
+    },
+    {
+      id: EventName.K50,
+      name: EventName.K50,
+      distance: 50 * K
+    },
+    {
+      id: EventName.M50,
+      name: EventName.M50,
+      distance: convertMilesToMeters(50)
+    },
+    {
+      id: EventName.K100,
+      name: EventName.K100,
+      distance: 100 * K
+    },
+    {
+      id: EventName.M100,
+      name: EventName.M100,
+      distance: convertMilesToMeters(100)
     }
   ];
 
@@ -191,12 +216,12 @@ export namespace Distance {
     }
   ];
 
-  const get = (name: EventName, list: Event[]): Event => {
-    return list.find((e) => e.name === name) || NO_DISTANCE_EVENT;
+  const get = (name: EventName, list: Event[]): Event | undefined => {
+    return list.find((e) => e.name === name);
   };
 
-  export const getEvent = (name: EventName): Event => get(name, EVENTS);
-  export const getSplit = (name: EventName): Event => get(name, SPLITS);
+  export const getEvent = (name: EventName): Event | undefined => get(name, EVENTS);
+  export const getSplit = (name: EventName): Event | undefined => get(name, SPLITS);
 
   export const getSplitIndex = (e: Event): number => {
     return SPLITS.findIndex((split) => e.name === split.name);

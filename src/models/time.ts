@@ -50,7 +50,7 @@ export namespace Time {
     return [timeIn * factor, Error.NO_ERROR];
   };
 
-  export type DisplayTime = [number, number, number, number, number, string, Error.ErrorMessage];
+  export type DisplayTime = [number, number, number, number, number, number, string, Error.ErrorMessage];
 
   export const makeDecimalString = (dec: number): string => {
     const decimalMultiplied = Math.round(dec * 1000);
@@ -59,16 +59,26 @@ export namespace Time {
   };
 
   export const makeDisplayTime = (time: number): DisplayTime => {
-    const h1 = Math.floor(time / 60 / 60);
-    const m10 = Math.floor(((time / 60) % 60) / 10);
-    const m1 = Math.floor(((time / 60) % 60) % 10);
-    const s10 = Math.floor((time % 60) / 10);
-    const s1 = Math.floor((time % 60) % 10);
-    const d = makeDecimalString(((time % 60) % 10) % 1);
-    if (h1 >= 10) {
-      return [0, 0, 0, 0, 0, '000', Error.TIME_IS_TOO_LONG];
+    const hours = time / 60 / 60;
+    const h10 = Math.floor(hours / 10);
+
+    if (h10 >= 10) {
+      return [0, 0, 0, 0, 0, 0, '000', Error.TIME_IS_TOO_LONG];
     }
-    return [h1, m10, m1, s10, s1, d, Error.NO_ERROR];
+
+    const h1 = Math.floor(hours % 10);
+
+    const minutes = time / 60 % 60;
+    const m10 = Math.floor((minutes / 10));
+    const m1 = Math.floor((minutes % 10));
+
+    const seconds = time % 60;
+    const s10 = Math.floor(seconds / 10);
+    const s1 = Math.floor(seconds % 10);
+
+    const d = makeDecimalString((seconds % 10) % 1);
+
+    return [h10, h1, m10, m1, s10, s1, d, Error.NO_ERROR];
   };
 
   // TODO: this might go unused

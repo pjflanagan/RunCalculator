@@ -7,13 +7,16 @@
 
 	const large = true;
 
-	$: [h1, m10, m1, s10, s1, d, displayTimeError] = Time.makeDisplayTime(timeOut);
+	$: [h10, h1, m10, m1, s10, s1, d, displayTimeError] = Time.makeDisplayTime(timeOut);
 	$: error = Error.hasError(displayTimeError) || inputError;
 </script>
 
 <Row className="time-out">
 	<Clock>
-		{#if h1 > 0 && !error}
+		{#if h10 > 0 && !error}
+			<Number num={h10} {large} {error} />
+		{/if}
+		{#if (h10 > 0 || h1 > 0) && !error}
 			<Number num={h1} {large} {error} />
 			<Unit unit="h" {large} />
 			<Colon {large} />
