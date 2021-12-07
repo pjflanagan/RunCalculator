@@ -1,6 +1,6 @@
 
 0: FIANL MVP
-- [x] PWA
+- [ ] PWA
 
 1: styles
 - [ ] animation
@@ -17,5 +17,5 @@
   - :focus-within, use focus on parent element
 
 3: network
-- [ ] url to share time and distance
+- [x] url to share time and distance
 - [ ] cookies for previously entered data
