@@ -2,43 +2,89 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/img/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="manifest" href="/manifest.json" />
-
-  %svelte.head%
+  <meta charset="utf-8">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/img/pwa/apple-icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2048-2732.png"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2732-2048.png"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1668-2388.png"
+    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2388-1668.png"
+    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1536-2048.png"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2048-1536.png"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1668-2224.png"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2224-1668.png"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1620-2160.png"
+    media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2160-1620.png"
+    media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1284-2778.png"
+    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2778-1284.png"
+    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1170-2532.png"
+    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2532-1170.png"
+    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1125-2436.png"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2436-1125.png"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1242-2688.png"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2688-1242.png"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-828-1792.png"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1792-828.png"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1242-2208.png"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-2208-1242.png"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-750-1334.png"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1334-750.png"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-640-1136.png"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="/img/pwa/apple-splash-1136-640.png"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
 
   <title>Run Calculator</title>
 
   <!-- SEO -->
   <meta name="description"
-    content="A running pace calculator designed for runners who want to know their splits for events from the 800 up through the marathon. Just enter in the event you are running, the time you want, and the split you want to see, and the calculator will display your pace." />
+    content="A running pace calculator designed for runners who want to know their splits for events from the 800 up through the marathon. Just enter in the event you are running, the time you want, and the split you want to see, and the calculator will display your pace.">
   <meta name="keywords"
-    content="Pace, Calculator, PR, Time, Run, Runners, Running, Split, Calc, 5K, 10K, Mile, Half Mile, 800, 1200, 3K, 2 Mile, Two Mile, Race, Event, Track, XC, Cross Country, Track,Track and Field, Race, Half Marathon, Marathon, Half, 8K, Split, Event, Racing" />
-  <meta name="author" content="pjflanagan.me" />
-
-  <!-- IOS -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/img/icon-57.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="/img/icon-72.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="/img/icon-114.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="/img/icon-144.png" />
+    content="Pace, Calculator, PR, Time, Run, Runners, Running, Split, Calc, 5K, 10K, Mile, Half Mile, 800, 1200, 3K, 2 Mile, Two Mile, Race, Event, Track, XC, Cross Country, Track,Track and Field, Race, Half Marathon, Marathon, Half, 8K, Split, Event, Racing">
+  <meta name="author" content="pjflanagan.me">
 
   <!-- FACEBOOK -->
-  <meta property="og:image" content="https://runcalculator.flanny.app/img/share-card.png" />
-  <meta property="og:image:secure_url" content="https://runcalculator.flanny.app/img/social/share-card.png" />
-  <meta property="og:url" content="https://runcalculator.flanny.app" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Run Calculator" />
-  <meta property="og:description" content="A simple running pace calculator for mobile and desktop." />
+  <meta property="og:image" content="https://runcalculator.flanny.app/img/share-card.png">
+  <meta property="og:image:secure_url" content="https://runcalculator.flanny.app/img/social/share-card.png">
+  <meta property="og:url" content="https://runcalculator.flanny.app">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Run Calculator">
+  <meta property="og:description" content="A simple running pace calculator for mobile and desktop.">
 
   <!-- TWITTER -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@runcalc" />
-  <meta name="twitter:title" content="Run Calculator" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@runcalc">
+  <meta name="twitter:title" content="Run Calculator">
   <meta name="twitter:description"
-    content="A simple calculator for runners on desktop and mobile. Calculate your pace or time for any event between the 800 and marathons." />
-  <meta name="twitter:image" content="https://runcalculator.flanny.app/img/social/share-card-tw.png" />
+    content="A simple calculator for runners on desktop and mobile. Calculate your pace or time for any event between the 800 and marathons.">
+  <meta name="twitter:image" content="https://runcalculator.flanny.app/img/social/share-card-tw.png">
 
   <!-- STYLE -->
   <style lang="scss">
@@ -49,28 +95,33 @@
       height: 100%;
     }
   </style>
-
   <script>
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/service-worker.js", { scope: "/" })
-        .then(function () {
-          console.log("Service Worker Registered");
-        });
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register("/service-worker.js", {
+            scope: "/"
+          })
+          .then(function () {
+            console.log("Service Worker Registered");
+          });
+      });
     }
   </script>
+  %svelte.head%
 </head>
 
 <body>
   <div id="svelte">%svelte.body%</div>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CNFGV4ZHRG"></script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CNFGV4ZHRG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
-
     gtag('config', 'G-CNFGV4ZHRG');
   </script>
 </body>
